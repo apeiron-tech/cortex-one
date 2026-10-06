@@ -787,7 +787,7 @@ const AppInputBar = React.memo(
             ref={containerRef}
             id="onyx-chat-input"
             className={cn(
-              "relative w-full flex flex-col glass-float rounded-16"
+              "relative w-full flex flex-col surface-composer rounded-16"
               // # Note (from @raunakab):
               //
               // `shadow-box-01` extends ~14px below the element (2px offset + 12px blur).

@@ -3,7 +3,7 @@
   "app": {
     "windows": [
       {
-        "title": "Cortex One",
+        "title": "Cortex One Development",
         "label": "main",
         "url": "index.html",
         "create": false,

@@ -676,51 +676,59 @@
     "type": "color"
   },
   "stone-98": {
-    "value": "#090b13",
+    "value": "#0d0d0d",
     "type": "color"
   },
   "stone-95": {
-    "value": "#12151f",
+    "value": "#171717",
     "type": "color"
   },
   "stone-90": {
-    "value": "#1b1f2d",
+    "value": "#212121",
     "type": "color"
   },
   "stone-85": {
-    "value": "#262b3b",
+    "value": "#2a2a2a",
     "type": "color"
   },
   "stone-80": {
-    "value": "#333849",
+    "value": "#303030",
+    "type": "color"
+  },
+  "stone-75": {
+    "value": "#3d3d3d",
+    "type": "color"
+  },
+  "stone-70": {
+    "value": "#4a4a4a",
     "type": "color"
   },
   "stone-60": {
-    "value": "#4f5568",
+    "value": "#5d5d5d",
     "type": "color"
   },
   "stone-50": {
-    "value": "#767c8e",
+    "value": "#8f8f8f",
     "type": "color"
   },
   "stone-40": {
-    "value": "#a0a5b4",
+    "value": "#afafaf",
     "type": "color"
   },
   "stone-20": {
-    "value": "#c9cddb",
+    "value": "#cdcdcd",
     "type": "color"
   },
   "stone-10": {
-    "value": "#e3e6ef",
+    "value": "#e3e3e3",
     "type": "color"
   },
   "stone-05": {
-    "value": "#eff1f7",
+    "value": "#ededed",
     "type": "color"
   },
   "stone-02": {
-    "value": "#f8f9fc",
+    "value": "#f7f7f7",
     "type": "color"
   },
   "chalk-98": {
@@ -839,6 +847,14 @@
     "value": "{stone-80}",
     "type": "color"
   },
+  "tint-75": {
+    "value": "{stone-75}",
+    "type": "color"
+  },
+  "tint-70": {
+    "value": "{stone-70}",
+    "type": "color"
+  },
   "tint-60": {
     "value": "{stone-60}",
     "type": "color"
@@ -867,28 +883,28 @@
     "value": "{stone-02}",
     "type": "color"
   },
-  "cortex-blue-light-06": {
-    "value": "#0062d6",
+  "cortex-ink-06": {
+    "value": "#000000",
     "type": "color"
   },
-  "cortex-blue-light-05": {
-    "value": "#007aff",
+  "cortex-ink-05": {
+    "value": "#0d0d0d",
     "type": "color"
   },
-  "cortex-blue-light-04": {
-    "value": "#2e90ff",
+  "cortex-ink-04": {
+    "value": "#2f2f2f",
     "type": "color"
   },
-  "cortex-blue-dark-06": {
-    "value": "#0064d2",
+  "cortex-paper-06": {
+    "value": "#d9d9d9",
     "type": "color"
   },
-  "cortex-blue-dark-05": {
-    "value": "#0a84ff",
+  "cortex-paper-05": {
+    "value": "#ffffff",
     "type": "color"
   },
-  "cortex-blue-dark-04": {
-    "value": "#3d9bff",
+  "cortex-paper-04": {
+    "value": "#ececec",
     "type": "color"
   }
 }

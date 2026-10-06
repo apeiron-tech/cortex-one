@@ -19,7 +19,7 @@ export default function AuthFlowContainer({
   const { appName, logoUrl } = useSettings();
   return (
     <div className="p-4 flex flex-col items-center justify-center min-h-screen">
-      <div className="w-full max-w-md flex items-start flex-col glass-float rounded-20 p-6">
+      <div className="w-full max-w-md flex items-start flex-col surface-float rounded-16 p-6">
         {/* logo_display_style only governs the sidebar; auth pages always show
             the logo mark (custom when uploaded, Cortex One otherwise) */}
         {logoUrl ? (

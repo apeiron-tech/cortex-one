@@ -23,6 +23,7 @@ import {
 import { useMcpServers } from "@/lib/mcp/hooks";
 import { getActionIcon } from "@/lib/tools/utils";
 import { ToolSnapshot } from "@/lib/tools/types";
+import { DEFAULT_APPLICATION_NAME } from "@/lib/constants";
 import { MCPServer } from "@/lib/mcp/types";
 import { EmptyMessageCard } from "@opal/components";
 import { InputSwitch } from "@opal/components";
@@ -281,7 +282,7 @@ export function AgentViewerModal({ agent, onClose }: AgentViewerModalProps) {
             )}
             <Content
               icon={SvgUser}
-              title={agent.owner?.email ?? "Cortex One"}
+              title={agent.owner?.email ?? DEFAULT_APPLICATION_NAME}
               sizePreset="main-ui"
               variant="body"
               color="muted"

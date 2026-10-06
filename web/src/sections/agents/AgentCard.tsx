@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { can } from "@/lib/permissions/resource-actions";
 import { useTierAtLeast } from "@/hooks/useTierAtLeast";
 import { Tier } from "@/lib/settings/types";
+import { DEFAULT_APPLICATION_NAME } from "@/lib/constants";
 import {
   SvgActions,
   SvgBarChart,
@@ -141,7 +142,7 @@ export default function AgentCard({ agent, onView }: AgentCardProps) {
               <div className="flex flex-col gap-1 py-1 px-2">
                 <Content
                   icon={SvgUser}
-                  title={agent.owner?.email || "Cortex One"}
+                  title={agent.owner?.email || DEFAULT_APPLICATION_NAME}
                   sizePreset="secondary"
                   variant="body"
                   color="muted"

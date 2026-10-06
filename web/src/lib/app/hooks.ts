@@ -14,7 +14,7 @@ export function useCustomFooterContent(): string {
   const settings = useSettings();
   return (
     settings.enterprise?.custom_lower_disclaimer_content ||
-    `Cortex One ${settings.version ?? "dev"} - ${APP_SLOGAN}`
+    `${settings.appName} - ${APP_SLOGAN}`
   );
 }
 

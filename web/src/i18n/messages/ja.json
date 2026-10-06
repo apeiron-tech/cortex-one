@@ -7778,7 +7778,7 @@
         "label": "初回訪問時のポップアップ通知"
       },
       "appName": {
-        "description": "この名前はアプリ全体に表示され、UI内の「Cortex One」を置き換えます。",
+        "description": "この名前はアプリ全体に表示され、UI内の「Cortex One Development」を置き換えます。",
         "label": "アプリケーションの表示名"
       },
       "chatFooter": {
@@ -9548,7 +9548,7 @@
         "title": "{appName} へようこそ"
       },
       "welcomeSubtitle": {
-        "text": "仕事のためのオープンソース AI プラットフォーム"
+        "text": "An Apeiron AI Platform"
       },
       "workEmailField": {
         "label": "職場のメールアドレス"
@@ -11779,7 +11779,7 @@
         "alt": "ロゴ"
       },
       "poweredBy": {
-        "label": "Powered by Cortex One"
+        "label": "An Apeiron AI Platform"
       }
     },
     "modelSelectors": {

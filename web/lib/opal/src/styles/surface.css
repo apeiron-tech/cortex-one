@@ -1,0 +1,252 @@
+@reference "#reference.css";
+
+/* ============================================================================
+   Surface — the Cortex One surface system
+
+   Flat, neutral and quiet, in the spirit of the OpenAI Codex desktop app.
+   Everything is gray: no tinted wallpaper, no blur, no gloss. Depth comes
+   from three cues only — a hairline, a step in gray, and a soft shadow on
+   anything that floats.
+
+   Light is the "gray" variant: the window and the sidebar sit on a soft gray,
+   and the content pane is a white card inset from the window edge.
+   Dark mirrors it: a near-black window, a dark-gray pane, lighter floats.
+
+   Three depths, from far to near:
+     window     the frame behind everything (the sidebar sits directly on it)
+     pane       the main content card
+     float      anything above a pane: menus, popovers, modals, the composer
+
+   The variables are defined here, not in @onyx-ai/shared: they are web-only
+   compositions (multi-layer shadows) of the shared tokens.
+   ============================================================================ */
+
+:root {
+  --surface-window: var(--background-tint-02);
+  --surface-pane: var(--background-neutral-00);
+  --surface-float: var(--background-neutral-00);
+  --surface-card: var(--background-neutral-00);
+  --surface-chip: var(--background-neutral-00);
+  --surface-chip-hover: var(--background-tint-02);
+  --surface-track: var(--background-tint-02);
+  --surface-selected: var(--background-tint-03);
+  --surface-hairline: var(--border-01);
+  --surface-hairline-strong: var(--border-02);
+
+  --surface-shadow-pane: 0 0 0 1px var(--surface-hairline);
+  --surface-shadow-float:
+    0 0 0 1px var(--surface-hairline), 0 12px 32px rgb(0 0 0 / 0.1),
+    0 2px 6px rgb(0 0 0 / 0.05);
+  --surface-shadow-chip: 0 1px 2px rgb(0 0 0 / 0.04);
+  --surface-shadow-composer:
+    0 0 0 1px var(--surface-hairline), 0 8px 24px rgb(0 0 0 / 0.06),
+    0 1px 3px rgb(0 0 0 / 0.04);
+
+  --surface-focus-ring: var(--alpha-grey-100-10);
+  --surface-tooltip: var(--background-neutral-dark-03);
+}
+
+/* Dark steps up from the base instead of down: the window is the one surface
+   darker than the pane, and everything that floats is lighter. */
+.dark {
+  --surface-window: var(--tint-95);
+  --surface-pane: var(--background-neutral-00);
+  --surface-float: var(--background-neutral-02);
+  --surface-card: var(--background-neutral-01);
+  --surface-chip: var(--background-neutral-02);
+  --surface-chip-hover: var(--background-neutral-03);
+  --surface-track: var(--alpha-grey-00-05);
+  --surface-selected: var(--alpha-grey-00-10);
+
+  --surface-shadow-float:
+    0 0 0 1px var(--surface-hairline), 0 12px 32px rgb(0 0 0 / 0.45),
+    0 2px 6px rgb(0 0 0 / 0.3);
+  --surface-shadow-chip: 0 1px 2px rgb(0 0 0 / 0.3);
+  --surface-shadow-composer:
+    0 0 0 1px var(--surface-hairline), 0 8px 24px rgb(0 0 0 / 0.35),
+    0 1px 3px rgb(0 0 0 / 0.3);
+
+  --surface-focus-ring: var(--alpha-grey-00-15);
+  --surface-tooltip: var(--background-neutral-03);
+}
+
+/* ---------------------------------------------------------------------------
+   Utilities
+   --------------------------------------------------------------------------- */
+
+/* A floating sheet: menus, popovers, the composer. */
+.surface-float {
+  background: var(--surface-float);
+  box-shadow: var(--surface-shadow-float);
+}
+
+/* A card resting on a pane: a hairline and a faint lift, no shadow spread. */
+.surface-card {
+  background: var(--surface-card);
+  box-shadow: var(--surface-shadow-pane), var(--surface-shadow-chip);
+}
+
+/* The composer: pane-colored, a hairline, and a shadow softer than a menu. */
+.surface-composer {
+  background: var(--surface-float);
+  box-shadow: var(--surface-shadow-composer);
+}
+
+/* ---------------------------------------------------------------------------
+   App frame: the sidebar sits on the window; the content pane is an inset card
+   --------------------------------------------------------------------------- */
+
+html body {
+  background: var(--surface-window);
+}
+
+/* Only where the sidebar docks (MEDIUM_BREAKPOINT_PX). Below it the sidebar is
+   an overlay and the main pane runs edge to edge. */
+@media (min-width: 912px) {
+  html .opal-root-layout {
+    padding: 0.5rem;
+    padding-inline-start: 0;
+    background: var(--surface-window);
+  }
+
+  html .opal-root-layout__app {
+    @apply rounded-12;
+    background: var(--surface-pane);
+    box-shadow: var(--surface-shadow-pane);
+  }
+
+  html .opal-sidebar-root__column {
+    background: transparent;
+  }
+
+  /* The Tauri shim clamps the sidebar to the full viewport with !important;
+     match it to the padded frame so the desktop app does not overflow. */
+  html.onyx-desktop .opal-sidebar-root__column {
+    height: calc(100dvh - var(--onyx-titlebar-height) - 1rem) !important;
+    max-height: calc(100dvh - var(--onyx-titlebar-height) - 1rem) !important;
+  }
+}
+
+/* Overlay sidebars (mobile, small): one floating sheet. */
+html .opal-sidebar-root__overlay {
+  background: var(--surface-window);
+  box-shadow: var(--surface-shadow-float);
+}
+
+/* ---------------------------------------------------------------------------
+   Floating surfaces
+   --------------------------------------------------------------------------- */
+
+html .opal-modal-card {
+  @apply rounded-16;
+  background: var(--surface-float);
+  box-shadow: var(--surface-shadow-float);
+  border-color: transparent;
+}
+html .opal-modal-card[data-background="gray"] {
+  background: var(--surface-float);
+}
+html .opal-modal-body[data-two-tone] {
+  background: var(--surface-track);
+}
+
+html .opal-dropdown-card {
+  background: var(--surface-float);
+  box-shadow: var(--surface-shadow-float);
+  border-color: transparent;
+}
+
+html .opal-tooltip {
+  @apply rounded-08;
+  background: var(--surface-tooltip);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.2);
+}
+
+/* ---------------------------------------------------------------------------
+   Controls
+   --------------------------------------------------------------------------- */
+
+/* Tabs: a recessed track with a raised thumb. */
+html .opal-tabs-list {
+  @apply rounded-08;
+}
+html .opal-tabs-list[data-variant="contained"] {
+  background: var(--surface-track);
+}
+html .opal-tabs-surface {
+  @apply rounded-08;
+}
+html .opal-tabs-surface[data-variant="contained"] {
+  background: var(--surface-chip);
+  border-color: transparent;
+  box-shadow: var(--surface-shadow-pane), var(--surface-shadow-chip);
+}
+
+/* Secondary: a chip with a hairline, like the pane it rests on. */
+html .interactive[data-interactive-variant="default"][data-interactive-prominence="secondary"]:not(
+  [data-disabled]
+) {
+  background-color: var(--surface-chip);
+  box-shadow: var(--surface-shadow-pane), var(--surface-shadow-chip);
+}
+html .interactive[data-interactive-variant="default"][data-interactive-prominence="secondary"]:hover:not(
+  [data-disabled]
+) {
+  background-color: var(--surface-chip-hover);
+}
+
+/* Text fields: a hairline well. Focus darkens the edge and adds a soft gray
+   ring; there is no accent color. Covers Opal inputs and the legacy
+   `.input-normal`. */
+html .opal-input[data-variant="primary"],
+html .opal-input-number[data-variant="primary"],
+html .input-normal {
+  background-color: var(--surface-chip);
+  border-color: var(--surface-hairline-strong);
+  box-shadow: none;
+}
+html .opal-input[data-variant="primary"]:hover,
+html .opal-input-number[data-variant="primary"]:hover,
+html .input-normal:hover {
+  border-color: var(--border-03);
+}
+html .opal-input[data-variant="primary"]:focus-within:not(:active),
+html .opal-input-number[data-variant="primary"]:focus-within:not(:active),
+html .input-normal:focus:not(:active),
+html .input-normal:focus-within:not(:active),
+html .opal-input[data-variant="primary"]:active,
+html .opal-input-number[data-variant="primary"]:active,
+html .input-normal:active {
+  border-color: var(--border-04);
+  box-shadow: 0 0 0 3px var(--surface-focus-ring);
+}
+html .opal-input[data-variant="error"]:focus-within:not(:active),
+html .opal-input-number[data-variant="error"]:focus-within:not(:active),
+html .input-error:focus-within:not(:active) {
+  box-shadow: 0 0 0 3px var(--status-error-02);
+}
+
+/* Sidebar rows: the selected row is one step of gray, with no edge. */
+html .interactive[data-interactive-variant="sidebar-heavy"][data-interactive-state="selected"],
+html .interactive[data-interactive-variant="sidebar-light"][data-interactive-state="selected"] {
+  background-color: var(--surface-selected);
+}
+
+/* ---------------------------------------------------------------------------
+   Cards
+   --------------------------------------------------------------------------- */
+
+html .opal-card[data-color="background-tint-00"],
+html .opal-card-expandable-header[data-color="background-tint-00"] {
+  background: var(--surface-card);
+}
+
+/* ---------------------------------------------------------------------------
+   Scrollbars
+   --------------------------------------------------------------------------- */
+
+@media (hover: hover) {
+  * {
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+}

@@ -205,15 +205,15 @@
       "type": "color"
     },
     "theme-primary-06": {
-      "value": "{cortex-blue-light-06}",
+      "value": "{cortex-ink-06}",
       "type": "color"
     },
     "theme-primary-05": {
-      "value": "{cortex-blue-light-05}",
+      "value": "{cortex-ink-05}",
       "type": "color"
     },
     "theme-primary-04": {
-      "value": "{cortex-blue-light-04}",
+      "value": "{cortex-ink-04}",
       "type": "color"
     },
     "theme-gradient-05": {

@@ -1,9 +1,11 @@
 "use client";
 
 import useSWR, { type KeyedMutator } from "swr";
+import { usePathname } from "next/navigation";
 import { errorHandlingFetcher } from "@/lib/fetcher";
 import { User } from "@/lib/types";
 import { SWR_KEYS } from "@/lib/swr-keys";
+import { isAuthPath } from "@/lib/auth/paths";
 
 /**
  * Fetches the current authenticated user via SWR (`/api/me`).
@@ -15,6 +17,10 @@ import { SWR_KEYS } from "@/lib/swr-keys";
  * - `revalidateOnFocus: false`      — tab switches won't trigger a refetch
  * - `revalidateOnReconnect: false`   — network recovery won't trigger a refetch
  * - `dedupingInterval: 300_000`      — duplicate requests within 5 min are deduped
+ *
+ * Unauthenticated `/auth/*` routes skip the fetch. Unsigned `/api/me` is a
+ * 403; throwing it from the fetcher surfaces as a Next.js overlay on login.
+ * Auth pages resolve signed-out via `getCurrentUserSS` instead.
  *
  * The 5 min window is safe because every path that changes user state
  * busts the cache explicitly:
@@ -39,8 +45,9 @@ export function useCurrentUser(): {
   /** The error thrown by the fetcher, if any. */
   userError: (Error & { status?: number }) | undefined;
 } {
+  const onAuthPath = isAuthPath(usePathname());
   const { data, isLoading, mutate, error } = useSWR<User | null>(
-    SWR_KEYS.me,
+    onAuthPath ? null : SWR_KEYS.me,
     errorHandlingFetcher,
     {
       revalidateOnFocus: false,
@@ -50,5 +57,10 @@ export function useCurrentUser(): {
     }
   );
 
-  return { user: data, isLoading, mutateUser: mutate, userError: error };
+  return {
+    user: onAuthPath ? null : data,
+    isLoading: onAuthPath ? false : isLoading,
+    mutateUser: mutate,
+    userError: onAuthPath ? undefined : error,
+  };
 }

@@ -7778,7 +7778,7 @@
         "label": "إشعار منبثق عند الزيارة الأولى"
       },
       "appName": {
-        "description": "سيظهر هذا الاسم في جميع أنحاء التطبيق وسيحل محل \"Cortex One\" في الواجهة.",
+        "description": "سيظهر هذا الاسم في جميع أنحاء التطبيق وسيحل محل \"Cortex One Development\" في الواجهة.",
         "label": "اسم عرض التطبيق"
       },
       "chatFooter": {
@@ -9548,7 +9548,7 @@
         "title": "مرحبًا بك في {appName}"
       },
       "welcomeSubtitle": {
-        "text": "منصة الذكاء الاصطناعي مفتوحة المصدر لعملك"
+        "text": "An Apeiron AI Platform"
       },
       "workEmailField": {
         "label": "البريد الإلكتروني للعمل"
@@ -11779,7 +11779,7 @@
         "alt": "الشعار"
       },
       "poweredBy": {
-        "label": "مدعوم من Cortex One"
+        "label": "An Apeiron AI Platform"
       }
     },
     "modelSelectors": {

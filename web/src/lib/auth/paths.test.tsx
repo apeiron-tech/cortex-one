@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { isAuthPath, loginPath } from "@/lib/auth/paths";
 import { useSettings } from "@/lib/settings/hooks";
 import { useLanguageModels } from "@/lib/languageModels/hooks";
+import { useCurrentUser } from "@/lib/users/hooks";
 import { SWR_KEYS } from "@/lib/swr-keys";
 
 jest.mock("swr", () => ({
@@ -104,5 +105,19 @@ describe("app-shell fetches are gated on /auth/* routes", () => {
     mockUsePathname.mockReturnValue("/chat");
     renderHook(() => useLanguageModels());
     expect(mockUseSWR.mock.calls[0]?.[0]).toBe(SWR_KEYS.llmProviders);
+  });
+
+  test("useCurrentUser skips /api/me on /auth/*", () => {
+    mockUsePathname.mockReturnValue("/auth/login");
+    const { result } = renderHook(() => useCurrentUser());
+    expect(mockUseSWR.mock.calls[0]?.[0]).toBeNull();
+    expect(result.current.user).toBeNull();
+    expect(result.current.isLoading).toBe(false);
+  });
+
+  test("useCurrentUser fetches /api/me off /auth/*", () => {
+    mockUsePathname.mockReturnValue("/chat");
+    renderHook(() => useCurrentUser());
+    expect(mockUseSWR.mock.calls[0]?.[0]).toBe(SWR_KEYS.me);
   });
 });

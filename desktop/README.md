@@ -1,4 +1,4 @@
-# Cortex One Desktop
+# Cortex One Development Desktop
 
 A lightweight macOS desktop application for [Onyx Cloud](https://cloud.onyx.app).
 
@@ -10,7 +10,7 @@ Built with [Tauri](https://tauri.app) for minimal bundle size (~10MB vs Electron
 - ⌨️ **Keyboard Shortcuts** - Quick navigation and actions
 - 🪟 **Native Feel** - macOS-style title bar with traffic lights
 - 💾 **Window State** - Remembers size/position between sessions
-- 🔗 **Multi-window** - Open multiple Cortex One windows
+- 🔗 **Multi-window** - Open multiple Cortex One Development windows
 
 ## Keyboard Shortcuts
 
@@ -152,7 +152,7 @@ The app defaults to `https://cloud.onyx.app` but supports any Onyx instance.
 ```json
 {
   "server_url": "https://your-onyx-instance.company.com",
-  "window_title": "Cortex One"
+  "window_title": "Cortex One Development"
 }
 ```
 
@@ -214,7 +214,7 @@ rustup target add aarch64-apple-darwin
 For distributing outside the App Store, you'll need to:
 
 1. Get an Apple Developer certificate
-2. Sign the app: `codesign --deep --force --sign "Developer ID" target/release/bundle/macos/Cortex One.app`
+2. Sign the app: `codesign --deep --force --sign "Developer ID" target/release/bundle/macos/Cortex One Development.app`
 3. Notarize with Apple
 
 ## License

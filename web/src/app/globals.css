@@ -53,10 +53,8 @@
 
   body {
     @apply text-foreground;
-    /* Ambient wallpaper (defined in @opal/styles/glass.css) behind the glass panes. */
-    background: var(--wallpaper);
-    background-attachment: fixed;
-    background-size: cover;
+    /* The window gray (defined in @opal/styles/surface.css) behind the panes. */
+    background: var(--surface-window);
     overscroll-behavior-y: none;
     overflow-anchor: none;
   }

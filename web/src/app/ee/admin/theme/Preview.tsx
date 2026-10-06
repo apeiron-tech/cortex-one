@@ -8,6 +8,7 @@ import Truncated from "@/refresh-components/texts/Truncated";
 import { ensureHrefProtocol } from "@/lib/utils";
 import { cn } from "@opal/utils";
 import { SvgCortexLogo } from "@opal/logos";
+import { DEFAULT_APPLICATION_NAME } from "@/lib/constants";
 import MinimalMarkdown from "@/components/chat/MinimalMarkdown";
 
 const previewMarkdownComponents = {
@@ -207,7 +208,7 @@ function PreviewStart({
             {(logoDisplayStyle === "logo_and_name" ||
               logoDisplayStyle === "name_only") && (
               <Truncated mainUiAction text04 nowrap>
-                {applicationDisplayName || "Cortex One"}
+                {applicationDisplayName || DEFAULT_APPLICATION_NAME}
               </Truncated>
             )}
           </div>

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Cortex One",
+  "name": "Cortex One Development",
   "version": "1.2",
-  "description": "Cortex One lets you research, create, and automate with LLMs powered by your team's unique knowledge",
+  "description": "Cortex One Development — an Apeiron AI platform. Research, create, and automate with LLMs powered by your team's unique knowledge",
   "permissions": ["sidePanel", "storage", "activeTab", "tabs"],
   "host_permissions": ["<all_urls>"],
   "background": {

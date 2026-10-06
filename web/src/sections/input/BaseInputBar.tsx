@@ -285,7 +285,7 @@ const BaseInputBar = memo(
           )}
           <div
             className={cn(
-              "w-full flex flex-col glass-float",
+              "w-full flex flex-col surface-composer",
               noBottomRounding ? "rounded-t-16 rounded-b-none" : "rounded-16"
             )}
           >

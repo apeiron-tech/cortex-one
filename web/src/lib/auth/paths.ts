@@ -41,7 +41,8 @@ export function loginPath({
  * Used to gate global app-shell fetches that fire from the root layout: the
  * providers/banners mounted there run on every route, including the login page,
  * where an unauthenticated caller would otherwise trigger expected-but-noisy
- * 403s (e.g. `/api/settings`, `/api/llm/provider`, `/api/notifications`).
+ * 403s (e.g. `/api/me`, `/api/settings`, `/api/llm/provider`,
+ * `/api/notifications`, `/api/chat/incognito-availability`).
  *
  * Matches whole path segments, so an unrelated route like `/authoring` is not
  * treated as an auth page.

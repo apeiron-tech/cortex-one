@@ -7778,7 +7778,7 @@
         "label": "首次访问弹窗通知"
       },
       "appName": {
-        "description": "此名称将在整个应用中显示,并替换界面中的\"Cortex One\"。",
+        "description": "此名称将在整个应用中显示,并替换界面中的\"Cortex One Development\"。",
         "label": "应用显示名称"
       },
       "chatFooter": {
@@ -9548,7 +9548,7 @@
         "title": "欢迎使用 {appName}"
       },
       "welcomeSubtitle": {
-        "text": "面向工作的开源 AI 平台"
+        "text": "An Apeiron AI Platform"
       },
       "workEmailField": {
         "label": "工作邮箱"
@@ -11779,7 +11779,7 @@
         "alt": "徽标"
       },
       "poweredBy": {
-        "label": "由 Cortex One 提供支持"
+        "label": "An Apeiron AI Platform"
       }
     },
     "modelSelectors": {

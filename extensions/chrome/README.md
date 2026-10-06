@@ -1,19 +1,19 @@
-# Cortex One Chrome Extension
+# Cortex One Development Chrome Extension
 
-The Cortex One chrome extension lets you research, create, and automate with LLMs powered by your team's unique knowledge. Just hit Ctrl + O on Mac or Alt + O on Windows to instantly access Cortex One in your browser:
+Cortex One Development is an Apeiron AI platform. The Chrome extension lets you research, create, and automate with LLMs powered by your team's unique knowledge. Just hit Ctrl + O on Mac or Alt + O on Windows to instantly access Cortex One Development in your browser:
 
-💡 Know what your company knows, instantly with the Cortex One sidebar
-💬 Chat: Cortex One provides a natural language chat interface as the main way of interacting with the features.
-🌎 Internal Search: Ask questions and get answers from all your team's knowledge, powered by Cortex One's 50+ connectors to all the tools your team uses
+💡 Know what your company knows, instantly with the Cortex One Development sidebar
+💬 Chat: Cortex One Development provides a natural language chat interface as the main way of interacting with the features.
+🌎 Internal Search: Ask questions and get answers from all your team's knowledge, powered by Cortex One Development's 50+ connectors to all the tools your team uses
 🚀 With a simple Ctrl + O on Mac or Alt + O on Windows - instantly summarize information from any work application
 
 ⚡️ Get quick access to the work resources you need.
-🆕 Cortex One new tab page puts all of your company’s knowledge at your fingertips
+🆕 The Cortex One Development new tab page puts all of your company’s knowledge at your fingertips
 🤖 Access custom AI Agents for unique use cases, and give them access to tools to take action.
 
 —
 
-Cortex One connects with dozens of popular workplace apps like Google Drive, Jira, Confluence, Slack, and more. Use this extension if you have an account created by your team admin.
+Cortex One Development connects with dozens of popular workplace apps like Google Drive, Jira, Confluence, Slack, and more. Use this extension if you have an account created by your team admin.
 
 ## Installation
 
@@ -29,7 +29,7 @@ policy are read-only in the extension UI. Supported keys (see
 
 | Key                          | Type    | Description                                     |
 | ---------------------------- | ------- | ----------------------------------------------- |
-| `onyxExtensionDomain`        | string  | Root URL of your Cortex One instance                  |
+| `onyxExtensionDomain`        | string  | Root URL of your Cortex One Development instance      |
 | `onyxExtensionDefaultNewTab` | boolean | Force the "Use Cortex One as new tab page" toggle     |
 
 Example (Linux, `/etc/opt/chrome/policies/managed/onyx.json`; the Chrome Web

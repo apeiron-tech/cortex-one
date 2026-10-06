@@ -292,19 +292,19 @@
     "type": "dimension"
   },
   "radius-08": {
-    "value": "0.625rem",
+    "value": "0.5rem",
     "type": "dimension"
   },
   "radius-12": {
-    "value": "0.875rem",
+    "value": "0.75rem",
     "type": "dimension"
   },
   "radius-16": {
-    "value": "1.25rem",
+    "value": "1rem",
     "type": "dimension"
   },
   "radius-20": {
-    "value": "1.625rem",
+    "value": "1.25rem",
     "type": "dimension"
   },
   "radius-round": {

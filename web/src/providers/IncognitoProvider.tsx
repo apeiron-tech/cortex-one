@@ -13,6 +13,7 @@ import { usePathname } from "next/navigation";
 import useSWR from "swr";
 import { errorHandlingFetcher } from "@/lib/fetcher";
 import { SWR_KEYS } from "@/lib/swr-keys";
+import { isAuthPath } from "@/lib/auth/paths";
 
 interface IncognitoAvailabilityResponse {
   available: boolean;
@@ -47,10 +48,12 @@ interface IncognitoProviderProps {
 export function IncognitoProvider({ children }: IncognitoProviderProps) {
   const [incognitoEnabled, setIncognitoEnabled] = useState(false);
   const [incognitoLocked, setIncognitoLocked] = useState(false);
+  const pathname = usePathname();
+  const onAuthPath = isAuthPath(pathname);
 
   const { data: availability, mutate: revalidateAvailability } =
     useSWR<IncognitoAvailabilityResponse>(
-      SWR_KEYS.incognitoAvailability,
+      onAuthPath ? null : SWR_KEYS.incognitoAvailability,
       errorHandlingFetcher,
       {
         // Hiding the toggle is the safe fallback, but a persistent failure
@@ -64,10 +67,10 @@ export function IncognitoProvider({ children }: IncognitoProviderProps) {
   // The provider mounts once for the whole app, so route changes never
   // remount the hook. Revalidating per navigation picks up admin changes to
   // the availability setting or group flags without a hard refresh.
-  const pathname = usePathname();
   useEffect(() => {
+    if (onAuthPath) return;
     void revalidateAvailability();
-  }, [pathname, revalidateAvailability]);
+  }, [pathname, onAuthPath, revalidateAvailability]);
 
   const [incognitoSessionId, setIncognitoSessionId] = useState<string | null>(
     null

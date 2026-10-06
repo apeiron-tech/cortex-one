@@ -20,13 +20,13 @@ export default function LoginScreen() {
 
   return (
     <AuthScreenShell
-      title="Welcome to Cortex One"
-      subtitle="Your open source AI platform for work"
+      title="Welcome to Cortex One Development"
+      subtitle="An Apeiron AI Platform"
       footer={
         <>
           {hasPassword ? (
             <AuthSwitchLink
-              prompt="New to Cortex One?"
+              prompt="New to Cortex One Development?"
               actionLabel="Create an Account"
               onPress={() => router.replace("/(auth)/signup")}
             />

@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { FetchError } from "@/lib/fetcher";
 import { useSettings } from "@/lib/settings/hooks";
 import { SWR_KEYS } from "@/lib/swr-keys";
+import { DEFAULT_APPLICATION_NAME } from "@/lib/constants";
 
 jest.mock("swr", () => ({
   __esModule: true,
@@ -62,7 +63,7 @@ describe("useSettings enterprise-settings 404 handling", () => {
     const { result } = renderHook(() => useSettings());
     expect(result.current.error).toBeUndefined();
     expect(result.current.enterprise).toBeNull();
-    expect(result.current.appName).toBe("Cortex One");
+    expect(result.current.appName).toBe(DEFAULT_APPLICATION_NAME);
     expect(result.current.logoUrl).toBeNull();
     expect(enterpriseRetryPolicy()(missing)).toBe(false);
   });

@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2.0.0",
-  "productName": "Cortex One",
+  "productName": "Cortex One Development",
   "version": "0.0.0-dev",
   "identifier": "app.onyx.desktop",
   "build": {
@@ -12,7 +12,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "Cortex One",
+        "title": "Cortex One Development",
         "label": "main",
         "url": "index.html",
         "create": false,

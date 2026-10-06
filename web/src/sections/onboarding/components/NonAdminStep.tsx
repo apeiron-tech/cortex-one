@@ -33,7 +33,7 @@ export default function NonAdminStep() {
   }, [user?.personalization?.name, savedName]);
 
   const containerClasses = cn(
-    "flex items-center justify-between w-full p-3 bg-background-tint-00 rounded-16 border border-border-01 mb-4"
+    "flex items-center justify-between w-full p-3 surface-card rounded-16 mb-4"
   );
 
   const handleEdit = () => {
@@ -67,7 +67,7 @@ export default function NonAdminStep() {
     <>
       {showHeader && (
         <div
-          className="flex items-center justify-between w-full min-h-11 py-1 ps-3 pe-2 bg-background-tint-00 rounded-16 shadow-box-01 mb-2"
+          className="flex items-center justify-between w-full min-h-11 py-1 ps-3 pe-2 surface-card rounded-16 mb-2"
           aria-label="non-admin-confirmation"
         >
           <ContentAction

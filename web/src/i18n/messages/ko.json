@@ -7778,7 +7778,7 @@
         "label": "첫 방문 시 팝업 알림"
       },
       "appName": {
-        "description": "이 이름은 앱 전체에 표시되며 UI에서 \"Cortex One\"를 대체합니다.",
+        "description": "이 이름은 앱 전체에 표시되며 UI에서 \"Cortex One Development\"를 대체합니다.",
         "label": "애플리케이션 표시 이름"
       },
       "chatFooter": {
@@ -9548,7 +9548,7 @@
         "title": "{appName}에 오신 것을 환영합니다"
       },
       "welcomeSubtitle": {
-        "text": "업무를 위한 오픈 소스 AI 플랫폼"
+        "text": "An Apeiron AI Platform"
       },
       "workEmailField": {
         "label": "회사 이메일"
@@ -11779,7 +11779,7 @@
         "alt": "로고"
       },
       "poweredBy": {
-        "label": "Powered by Cortex One"
+        "label": "An Apeiron AI Platform"
       }
     },
     "modelSelectors": {

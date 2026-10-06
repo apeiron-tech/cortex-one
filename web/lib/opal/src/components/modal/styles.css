@@ -17,7 +17,7 @@
    --------------------------------------------------------------------------- */
 
 .opal-modal-overlay {
-  @apply fixed inset-0 bg-mask-03 backdrop-blur-03 pointer-events-none;
+  @apply fixed inset-0 bg-mask-03 pointer-events-none;
   z-index: var(--z-modal-overlay);
 }
 .opal-modal-overlay[data-state="open"] {

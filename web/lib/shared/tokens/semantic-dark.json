@@ -65,23 +65,23 @@
       "type": "color"
     },
     "background-neutral-00": {
-      "value": "{stone-98}",
-      "type": "color"
-    },
-    "background-neutral-01": {
-      "value": "{stone-95}",
-      "type": "color"
-    },
-    "background-neutral-02": {
       "value": "{stone-90}",
       "type": "color"
     },
-    "background-neutral-03": {
+    "background-neutral-01": {
       "value": "{stone-85}",
       "type": "color"
     },
-    "background-neutral-04": {
+    "background-neutral-02": {
       "value": "{stone-80}",
+      "type": "color"
+    },
+    "background-neutral-03": {
+      "value": "{stone-75}",
+      "type": "color"
+    },
+    "background-neutral-04": {
+      "value": "{stone-70}",
       "type": "color"
     },
     "background-neutral-inverted-04": {
@@ -117,23 +117,23 @@
       "type": "color"
     },
     "background-tint-00": {
-      "value": "{stone-98}",
-      "type": "color"
-    },
-    "background-tint-01": {
-      "value": "{tint-95}",
-      "type": "color"
-    },
-    "background-tint-02": {
       "value": "{tint-90}",
       "type": "color"
     },
-    "background-tint-03": {
+    "background-tint-01": {
       "value": "{tint-85}",
       "type": "color"
     },
-    "background-tint-04": {
+    "background-tint-02": {
       "value": "{tint-80}",
+      "type": "color"
+    },
+    "background-tint-03": {
+      "value": "{tint-75}",
+      "type": "color"
+    },
+    "background-tint-04": {
+      "value": "{tint-70}",
       "type": "color"
     },
     "background-tint-inverted-04": {
@@ -165,11 +165,11 @@
       "type": "color"
     },
     "border-01": {
-      "value": "{alpha-grey-00-15}",
+      "value": "{alpha-grey-00-10}",
       "type": "color"
     },
     "border-02": {
-      "value": "{alpha-grey-00-20}",
+      "value": "{alpha-grey-00-15}",
       "type": "color"
     },
     "border-03": {
@@ -205,15 +205,15 @@
       "type": "color"
     },
     "theme-primary-06": {
-      "value": "{cortex-blue-dark-06}",
+      "value": "{cortex-paper-06}",
       "type": "color"
     },
     "theme-primary-05": {
-      "value": "{cortex-blue-dark-05}",
+      "value": "{cortex-paper-05}",
       "type": "color"
     },
     "theme-primary-04": {
-      "value": "{cortex-blue-dark-04}",
+      "value": "{cortex-paper-04}",
       "type": "color"
     },
     "theme-gradient-05": {
@@ -509,7 +509,7 @@
       "type": "color"
     },
     "background-code-01": {
-      "value": "#151617",
+      "value": "{stone-95}",
       "type": "color"
     },
     "code-code": {

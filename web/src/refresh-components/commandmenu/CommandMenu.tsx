@@ -378,7 +378,7 @@ const CommandMenuContent = React.forwardRef<
       <DialogPrimitive.Overlay
         aria-hidden="true"
         className={cn(
-          "fixed inset-0 z-modal-overlay bg-mask-03 backdrop-blur-03 pointer-events-none",
+          "fixed inset-0 z-modal-overlay bg-mask-03 pointer-events-none",
           "data-[state=open]:animate-in data-[state=closed]:animate-out",
           "data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0"
         )}

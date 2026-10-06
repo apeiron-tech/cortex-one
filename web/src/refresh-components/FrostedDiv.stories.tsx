@@ -10,13 +10,7 @@ const meta: Meta<typeof FrostedDiv> = {
   },
   decorators: [
     (Story) => (
-      <div
-        className="p-12"
-        style={{
-          background:
-            "linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)",
-        }}
-      >
+      <div className="p-12 bg-[var(--surface-window)]">
         <Story />
       </div>
     ),
@@ -28,34 +22,9 @@ type Story = StoryObj<typeof FrostedDiv>;
 
 export const Default: Story = {
   args: {
-    className: "p-4",
+    className: "p-4 surface-card rounded-12",
     children: (
-      <span className="text-text-04 font-main-ui-action">
-        Frosted glass content
-      </span>
-    ),
-  },
-};
-
-export const CustomBlur: Story = {
-  args: {
-    blur: "30px",
-    backdropBlur: "10px",
-    className: "p-6",
-    children: (
-      <span className="text-text-04 font-main-ui-action">
-        Heavy blur effect
-      </span>
-    ),
-  },
-};
-
-export const CustomBorderRadius: Story = {
-  args: {
-    borderRadius: "0.5rem",
-    className: "p-4",
-    children: (
-      <span className="text-text-04 font-main-ui-action">Rounded corners</span>
+      <span className="text-text-04 font-main-ui-action">Surface content</span>
     ),
   },
 };

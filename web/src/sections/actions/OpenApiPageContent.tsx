@@ -352,7 +352,7 @@ export default function OpenApiPageContent() {
     <div className="flex flex-col h-full overflow-hidden">
       {showSharedOverlay && (
         <div
-          className="fixed inset-0 z-modal-overlay bg-mask-03 backdrop-blur-03 pointer-events-none data-[state=open]:animate-in data-[state=open]:fade-in-0"
+          className="fixed inset-0 z-modal-overlay bg-mask-03 pointer-events-none data-[state=open]:animate-in data-[state=open]:fade-in-0"
           data-state="open"
           aria-hidden="true"
         />

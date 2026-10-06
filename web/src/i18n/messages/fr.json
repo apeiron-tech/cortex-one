@@ -7778,7 +7778,7 @@
         "label": "Avis contextuel lors de la première visite"
       },
       "appName": {
-        "description": "Ce nom apparaîtra dans toute l'application et remplacera \"Cortex One\" dans l'interface.",
+        "description": "Ce nom apparaîtra dans toute l'application et remplacera \"Cortex One Development\" dans l'interface.",
         "label": "Nom d'affichage de l'application"
       },
       "chatFooter": {
@@ -9548,7 +9548,7 @@
         "title": "Bienvenue sur {appName}"
       },
       "welcomeSubtitle": {
-        "text": "Votre plateforme d'IA open source pour le travail"
+        "text": "An Apeiron AI Platform"
       },
       "workEmailField": {
         "label": "E-mail professionnel"
@@ -11779,7 +11779,7 @@
         "alt": "Logo"
       },
       "poweredBy": {
-        "label": "Propulsé par Cortex One"
+        "label": "An Apeiron AI Platform"
       }
     },
     "modelSelectors": {

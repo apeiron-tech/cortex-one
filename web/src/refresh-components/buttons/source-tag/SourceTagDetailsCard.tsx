@@ -88,7 +88,7 @@ const SourceTagDetailsCardInner = ({
   );
 
   return (
-    <div className="w-70 glass-float rounded-12 overflow-hidden">
+    <div className="w-70 surface-float rounded-12 overflow-hidden">
       {/* Navigation header - only shown for multiple sources */}
       {showNavigation && (
         <div className="flex items-center justify-between p-2 bg-background-tint-01 border-b border-border-01">

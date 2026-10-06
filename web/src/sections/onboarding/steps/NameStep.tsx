@@ -31,7 +31,7 @@ const NameStep = React.memo(
 
     const isActive = onboardingState.currentStep === OnboardingStep.Name;
     const containerClasses = cn(
-      "flex items-center justify-between w-full p-3 bg-background-tint-00 rounded-16 border border-border-01"
+      "flex items-center justify-between w-full p-3 surface-card rounded-16"
     );
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

@@ -3,7 +3,7 @@
 <h2 align="center">
     <picture>
         <source media="(prefers-color-scheme: dark)" srcset="web/public/logotype-dark.png" />
-        <img width="40%" alt="Cortex One" src="web/public/logotype.png" />
+        <img width="40%" alt="Cortex One Development" src="web/public/logotype.png" />
     </picture>
 </h2>
 
@@ -13,15 +13,17 @@
     </a>
 </p>
 
-# Cortex One - The context layer powered by all your apps
+# Cortex One Development
+
+An Apeiron AI Platform.
 
 > "LLMs know about everything public, but what if it could also know what's going on in our team? I want an AI coworker, not an AI new hire."
 
-**Cortex One** is the knowledge/context layer for your team and AI agents.
+**Cortex One Development** is the knowledge and context layer for your team and AI agents.
 
-Cortex One connects to your application to index and surface knowledge from 50+ applications while protecting your data sovereignty through flexible self-hosted deployments.
+Cortex One Development connects to your application to index and surface knowledge from 50+ applications while protecting your data sovereignty through flexible self-hosted deployments.
 
-Beyond search, Cortex One enables LLMs with advanced features like web search, sandboxes, skills, and more.
+Beyond search, Cortex One Development enables LLMs with advanced features like web search, sandboxes, skills, and more.
 
 
 > [!TIP]
@@ -30,17 +32,17 @@ Beyond search, Cortex One enables LLMs with advanced features like web search, s
 > cd deployment/docker_compose && docker compose up -d
 > ```
 
-![Cortex One chat answering a question about use cases](docs/assets/onyx-chat-use-cases.png)
+![Cortex One Development chat answering a question about use cases](docs/assets/onyx-chat-use-cases.png)
 
 ---
 
-## How does Cortex One work
+## How does Cortex One Development work
 
-Cortex One creates a representation of knowledge across all connected sources. It pulls data along with metadata, permissions, etc. and ingests it so that the information is easily accessible for downstream use cases.
+Cortex One Development creates a representation of knowledge across all connected sources. It pulls data along with metadata, permissions, etc. and ingests it so that the information is easily accessible for downstream use cases.
 
-Compared to MCP based searches and index-free approaches, Cortex One provides a more reliable, low latency, and low cost context for any given query whether it's a simple keyword query or a complex research task.
+Compared to MCP based searches and index-free approaches, Cortex One Development provides a more reliable, low latency, and low cost context for any given query whether it's a simple keyword query or a complex research task.
 
-Instead of an agent coordinating and iteratively searching dozens of MCP and burning many thousands of tokens, Cortex One fetches the context across its internal representation instantly and filters down to only the most relevant ground truth documents.
+Instead of an agent coordinating and iteratively searching dozens of MCP and burning many thousands of tokens, Cortex One Development fetches the context across its internal representation instantly and filters down to only the most relevant ground truth documents.
 
 ## ⭐ Features
 
@@ -50,12 +52,12 @@ Instead of an agent coordinating and iteratively searching dozens of MCP and bur
 - **🌍 Web Search:** Augment internal knowledge with live web search.
   - Supports Serper, Google PSE, Brave, SearXNG, and others.
   - Comes with an in house web crawler and support for Firecrawl/Exa.
-- **▶️ External Actions & MCP:** Let Cortex One agents take actions in external applications to complete tasks end to end.
+- **▶️ External Actions & MCP:** Let Cortex One Development agents take actions in external applications to complete tasks end to end.
 - **💻 Secure Sandbox:** Execute code and work with intermediate artifacts in a sandbox for complex workflows.
 - **📄 Artifacts:** Generate documents, graphics, and other downloadable artifacts.
-- **🎙️ Voice Mode:** Interact with Cortex One via text-to-speech and speech-to-text.
+- **🎙️ Voice Mode:** Interact with Cortex One Development via text-to-speech and speech-to-text.
 
-Cortex One supports all major LLM providers, both self-hosted (like Ollama, LiteLLM, vLLM, etc.) and proprietary (like Anthropic, OpenAI, Gemini, etc.).
+Cortex One Development supports all major LLM providers, both self-hosted (like Ollama, LiteLLM, vLLM, etc.) and proprietary (like Anthropic, OpenAI, Gemini, etc.).
 
 To learn more - check out our [upstream Onyx docs](https://docs.onyx.app/welcome)!
 
@@ -63,47 +65,47 @@ To learn more - check out our [upstream Onyx docs](https://docs.onyx.app/welcome
 
 ## Security and Data Processing
 
-![Cortex One architecture: everything runs inside your environment](docs/assets/architecture.png)
+![Cortex One Development architecture: everything runs inside your environment](docs/assets/architecture.png)
 
 When connecting up your organization's knowledge, it's critical that this sensitive IP is not leaked to the wrong parties both external and internal.
 
-Cortex One provides an air-gappable, self-hosted deployment where the document index, database, and processing all happen within a self-contained set of services.
+Cortex One Development provides an air-gappable, self-hosted deployment where the document index, database, and processing all happen within a self-contained set of services.
 
 You can also choose a trusted embedding model and LLM provider (both of which can also run locally).
 
 ---
 
-## Access Cortex One from anywhere
+## Access Cortex One Development from anywhere
 
 The same security and fine grained permissions apply no matter where the question comes from.
 
-- **Web and desktop app** - Ask questions, interface with Cortex One AI agents, and everything else in the feature list above.
+- **Web and desktop app** - Ask questions, interface with Cortex One Development AI agents, and everything else in the feature list above.
 - **Slack and Discord bot** - Get answers directly in Slack or Discord from a bot connected to your org's knowledge.
-- **MCP server** - Point Claude Code, Open Code, Codex, or any MCP client at Cortex One. Your AI agents get company context with the same access controls as the person running them.
-- **Chrome extension** - Query Cortex One from any tab with context from the page, directly in Chrome.
-- **Embeddable Widget** - Easily add Cortex One functionality to your app or website.
+- **MCP server** - Point Claude Code, Open Code, Codex, or any MCP client at Cortex One Development. Your AI agents get company context with the same access controls as the person running them.
+- **Chrome extension** - Query Cortex One Development from any tab with context from the page, directly in Chrome.
+- **Embeddable Widget** - Easily add Cortex One Development functionality to your app or website.
 
 ---
 
 ## 🚀 Deployment Modes
 
-> Cortex One supports deployments in Docker, Kubernetes, Helm/Terraform and provides guides for major cloud providers.
+> Cortex One Development supports deployments in Docker, Kubernetes, Helm/Terraform and provides guides for major cloud providers.
 > Detailed deployment guides found [in the upstream Onyx docs](https://docs.onyx.app/deployment/overview).
 
-Cortex One supports two separate deployment options: standard and lite.
+Cortex One Development supports two separate deployment options: standard and lite.
 
-#### Standard Cortex One
+#### Standard Cortex One Development
 
-The complete feature set of Cortex One which is recommended for serious users and larger teams. Additional components not included in Lite mode:
+The complete feature set of Cortex One Development which is recommended for serious users and larger teams. Additional components not included in Lite mode:
 - Vector + Keyword index for RAG.
 - Background containers to run job queues and workers for syncing knowledge from connectors.
 - AI model inference servers to run deep learning models used during indexing and inference.
 - Performance optimizations for large scale use via in memory cache (Redis) and blob store (MinIO).
 
-#### Cortex One Lite
+#### Cortex One Development Lite
 
 The Lite mode can be thought of as a lightweight AI Chat UI. It requires less resources (under 1GB memory) and runs a less complex stack but is not capable of indexing documents.
-It is great for users who want to test out the Cortex One UI quickly or for teams who are only interested in the Chat UI and Agents functionalities.
+It is great for users who want to test out the Cortex One Development UI quickly or for teams who are only interested in the Chat UI and Agents functionalities.
 
 ---
 
@@ -116,7 +118,7 @@ The codebase includes features for teams of all sizes, from individual users to 
 - 📊 Analytics: Usage graphs broken down by teams, LLMs, or agents.
 - 🕵️ Query History: Audit usage to ensure safe adoption of AI in your organization.
 - 💻 Custom code: Run custom code to remove PII, reject sensitive queries, or to run custom analysis.
-- 🎨 Whitelabeling: Customize the look and feel of Cortex One with custom naming, icons, banners, and more.
+- 🎨 Whitelabeling: Customize the look and feel of Cortex One Development with custom naming, icons, banners, and more.
 
 ## 📚 Licensing
 
@@ -133,4 +135,4 @@ Looking to contribute? Please check out the [Contribution Guide](CONTRIBUTING.md
 
 ## Attribution and licence
 
-Cortex One is built on [Onyx](https://github.com/onyx-dot-app/onyx), an open-source project released under the MIT licence (Copyright (c) 2023-present DanswerAI, Inc.). The original copyright and licence notices stay in [`LICENSE`](LICENSE). Code in `ee/` directories is covered by the Onyx Enterprise License in those directories.
+Cortex One Development is built on [Onyx](https://github.com/onyx-dot-app/onyx), an open-source project released under the MIT licence (Copyright (c) 2023-present DanswerAI, Inc.). The original copyright and licence notices stay in [`LICENSE`](LICENSE). Code in `ee/` directories is covered by the Onyx Enterprise License in those directories.

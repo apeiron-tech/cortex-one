@@ -17,7 +17,7 @@ export default function SignupScreen() {
   return (
     <AuthScreenShell
       title="Create account"
-      subtitle="Get started with Cortex One"
+      subtitle="Get started with Cortex One Development"
       footer={
         <AuthSwitchLink
           prompt="Already have an account?"

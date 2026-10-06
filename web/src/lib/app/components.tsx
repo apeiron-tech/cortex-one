@@ -2,10 +2,12 @@
 
 import { useTranslations } from "next-intl";
 import { useSettings } from "@/lib/settings/hooks";
-import { DEFAULT_LOGO_SIZE_PX } from "@/lib/constants";
+import {
+  DEFAULT_APPLICATION_NAME,
+  DEFAULT_LOGO_SIZE_PX,
+} from "@/lib/constants";
 import { cn } from "@opal/utils";
 import Text from "@/refresh-components/texts/Text";
-import Truncated from "@/refresh-components/texts/Truncated";
 import { SvgCortexLogo, SvgCortexLogoTyped } from "@opal/logos";
 import { IconProps } from "@opal/types";
 
@@ -71,7 +73,8 @@ export function FoldableLogo({
   const resolvedSize = size ?? DEFAULT_LOGO_SIZE_PX;
   const { enterprise, hide_onyx_branding, isLoading } = useSettings();
   const logoDisplayStyle = enterprise?.logo_display_style;
-  const applicationName = enterprise?.application_name;
+  const applicationName =
+    enterprise?.application_name?.trim() || DEFAULT_APPLICATION_NAME;
 
   if (onyxBranded) {
     return folded ? (
@@ -91,10 +94,11 @@ export function FoldableLogo({
       <div className="flex min-w-0 gap-2">
         {opts.includeLogo && logo}
         {!folded && (
-          /* H3 text is 4px larger (28px) than the Logo icon (24px), so negative margin hack. */
           <div className="flex flex-1 flex-col -mt-0.5">
             {opts.includeName && (
-              <Truncated headingH3>{applicationName}</Truncated>
+              <Text as="p" headingH3 text05 className="line-clamp-2">
+                {applicationName}
+              </Text>
             )}
             {/* Wait for settings so a hidden tagline never flashes. */}
             {!isLoading && !hide_onyx_branding && (
@@ -124,11 +128,5 @@ export function FoldableLogo({
   }
 
   // Handle "logo_and_name" or default behavior
-  return applicationName ? (
-    renderNameAndPoweredBy({ includeLogo: true, includeName: true })
-  ) : folded ? (
-    <Logo size={resolvedSize} className={className} />
-  ) : (
-    <SvgCortexLogoTyped size={resolvedSize} className={className} />
-  );
+  return renderNameAndPoweredBy({ includeLogo: true, includeName: true });
 }

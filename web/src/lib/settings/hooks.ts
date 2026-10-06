@@ -14,7 +14,7 @@ import {
   QueryHistoryType,
   Settings,
 } from "@/lib/settings/types";
-import { EE_ENABLED } from "@/lib/constants";
+import { DEFAULT_APPLICATION_NAME, EE_ENABLED } from "@/lib/constants";
 
 const SETTINGS_ERROR_RETRY_INTERVAL = 5_000;
 
@@ -105,7 +105,7 @@ export function useSettings(): AppSettings {
   return {
     ...core,
     enterprise: enterprise ?? null,
-    appName: enterprise?.application_name?.trim() || "Cortex One",
+    appName: enterprise?.application_name?.trim() || DEFAULT_APPLICATION_NAME,
     logoUrl: enterprise?.use_custom_logo
       ? `/api/enterprise-settings/logo?v=${logoBuster}`
       : null,

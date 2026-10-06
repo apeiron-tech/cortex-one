@@ -2,7 +2,7 @@
  * Page Object Model for the Admin Appearance / Theme page (/admin/theme).
  *
  * Encapsulates locators and interactions for the custom help link and
- * "Powered by Cortex One" tagline so specs stay declarative. Existing tests in
+ * "An Apeiron AI Platform" tagline so specs stay declarative. Existing tests in
  * `appearance_theme_settings.spec.ts` still use inline locators; new tests
  * should drive the page through this class.
  */
@@ -158,7 +158,7 @@ export class AppearanceThemePage {
 
   async expectPoweredByOnyxVisible() {
     await expect(
-      this.page.getByText("Powered by Cortex One", { exact: true })
+      this.page.getByText("An Apeiron AI Platform", { exact: true })
     ).toBeVisible({ timeout: 5_000 });
   }
 
