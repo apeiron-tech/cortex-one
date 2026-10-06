@@ -32,7 +32,7 @@ Beyond search, Cortex One Development enables LLMs with advanced features like w
 > cd deployment/docker_compose && docker compose up -d
 > ```
 
-![Cortex One Development chat answering a question about use cases](docs/assets/onyx-chat-use-cases.png)
+![Cortex One Development chat](docs/assets/onyx-chat-use-cases.png)
 
 ---
 
