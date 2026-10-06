@@ -4,7 +4,7 @@ import { FoldableLogo } from "@/lib/app/components";
 import { useSettings } from "@/lib/settings/hooks";
 import { useTranslations } from "next-intl";
 
-export default function OnyxInitializingLoader() {
+export default function CortexInitializingLoader() {
   const t = useTranslations("common.initializingLoader");
   const { appName } = useSettings();
 

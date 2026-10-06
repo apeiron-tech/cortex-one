@@ -17,11 +17,11 @@
       "type": "color"
     },
     "text-03": {
-      "value": "{alpha-grey-00-60}",
+      "value": "{alpha-grey-00-70}",
       "type": "color"
     },
     "text-02": {
-      "value": "{alpha-grey-00-45}",
+      "value": "{alpha-grey-00-55}",
       "type": "color"
     },
     "text-01": {
@@ -65,23 +65,23 @@
       "type": "color"
     },
     "background-neutral-00": {
-      "value": "{grey-100}",
+      "value": "{stone-98}",
       "type": "color"
     },
     "background-neutral-01": {
-      "value": "{grey-90}",
+      "value": "{stone-95}",
       "type": "color"
     },
     "background-neutral-02": {
-      "value": "{grey-85}",
+      "value": "{stone-90}",
       "type": "color"
     },
     "background-neutral-03": {
-      "value": "{grey-80}",
+      "value": "{stone-85}",
       "type": "color"
     },
     "background-neutral-04": {
-      "value": "{grey-75}",
+      "value": "{stone-80}",
       "type": "color"
     },
     "background-neutral-inverted-04": {
@@ -117,7 +117,7 @@
       "type": "color"
     },
     "background-tint-00": {
-      "value": "{grey-100}",
+      "value": "{stone-98}",
       "type": "color"
     },
     "background-tint-01": {
@@ -165,11 +165,11 @@
       "type": "color"
     },
     "border-01": {
-      "value": "{grey-80}",
+      "value": "{alpha-grey-00-15}",
       "type": "color"
     },
     "border-02": {
-      "value": "{grey-60}",
+      "value": "{alpha-grey-00-20}",
       "type": "color"
     },
     "border-03": {
@@ -205,15 +205,15 @@
       "type": "color"
     },
     "theme-primary-06": {
-      "value": "{onyx-chrome-00}",
+      "value": "{cortex-blue-dark-06}",
       "type": "color"
     },
     "theme-primary-05": {
-      "value": "{onyx-chrome-10}",
+      "value": "{cortex-blue-dark-05}",
       "type": "color"
     },
     "theme-primary-04": {
-      "value": "{onyx-chrome-20}",
+      "value": "{cortex-blue-dark-04}",
       "type": "color"
     },
     "theme-gradient-05": {

@@ -64,7 +64,7 @@ import {
   SvgEyeOff,
   SvgImage,
   SvgLock,
-  SvgOnyxOctagon,
+  SvgCortexRing,
   SvgOrganization,
   SvgTag,
   SvgUsers,
@@ -1229,7 +1229,7 @@ export default function AgentEditorPage({
                 <Form className="h-full w-full">
                   <SettingsLayouts.Root>
                     <SettingsLayouts.Header
-                      icon={SvgOnyxOctagon}
+                      icon={SvgCortexRing}
                       title={
                         existingAgent
                           ? t("editor.header.editTitle")

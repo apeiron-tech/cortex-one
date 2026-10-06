@@ -3,12 +3,12 @@
   "type": "object",
   "properties": {
     "onyxExtensionDomain": {
-      "title": "Onyx root domain",
-      "description": "Root URL of the Onyx instance (for example https://cloud.onyx.app). When set by policy, users cannot change it in the extension.",
+      "title": "Cortex One root domain",
+      "description": "Root URL of the Cortex One instance (for example https://cloud.onyx.app). When set by policy, users cannot change it in the extension.",
       "type": "string"
     },
     "onyxExtensionDefaultNewTab": {
-      "title": "Use Onyx as new tab page",
+      "title": "Use Cortex One as new tab page",
       "description": "Force the new tab override on (true) or off (false). When set by policy, users cannot change the toggle in the extension.",
       "type": "boolean"
     }

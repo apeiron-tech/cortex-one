@@ -213,7 +213,7 @@ fn build_help_menu(app: &AppHandle, menu: &Menu<Wry>) -> tauri::Result<()> {
     let docs_item = MenuItem::with_id(
         app,
         MENU_OPEN_DOCS_ID,
-        "Onyx Documentation",
+        "Documentation",
         true,
         None::<&str>,
     )?;
@@ -376,7 +376,7 @@ fn build_tray_menu(app: &AppHandle) -> tauri::Result<Menu<Wry>> {
     let open_app = MenuItem::with_id(
         app,
         TRAY_MENU_OPEN_APP_ID,
-        "Open Onyx",
+        "Open Cortex One",
         true,
         open_app_chord.as_deref(),
     )?;
@@ -410,7 +410,7 @@ fn build_tray_menu(app: &AppHandle) -> tauri::Result<Menu<Wry>> {
     )?;
     // Keep it visible/pinned without letting users uncheck (avoids orphaning the tray)
     show_in_menu_bar.set_enabled(false)?;
-    let quit = PredefinedMenuItem::quit(app, Some("Quit Onyx"))?;
+    let quit = PredefinedMenuItem::quit(app, Some("Quit Cortex One"))?;
 
     let mut builder = MenuBuilder::new(app).item(&open_app).item(&open_chat);
     if let Some(item) = summon_new_chat.as_ref() {
@@ -473,7 +473,7 @@ fn handle_tray_menu_event(app: &AppHandle, id: &str) {
 }
 
 pub fn setup_tray_icon(app: &AppHandle) -> tauri::Result<()> {
-    let mut builder = TrayIconBuilder::with_id(TRAY_ID).tooltip("Onyx");
+    let mut builder = TrayIconBuilder::with_id(TRAY_ID).tooltip("Cortex One");
 
     let tray_icon = Image::from_bytes(TRAY_ICON_BYTES)
         .ok()

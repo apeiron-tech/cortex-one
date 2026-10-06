@@ -205,7 +205,7 @@ def make_mcp_server_private(
     # May cause error if someone switches down to MIT from EE
     if user_ids or group_ids:
         raise NotImplementedError(
-            "Onyx MIT does not support restricting MCP servers to users/groups"
+            "Cortex One MIT does not support restricting MCP servers to users/groups"
         )
 
 

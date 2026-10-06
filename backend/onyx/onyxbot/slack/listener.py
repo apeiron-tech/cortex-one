@@ -860,7 +860,7 @@ def prefilter_requests(req: SocketModeRequest, client: TenantSocketModeClient) -
 
             # OnyxBot should never respond to itself
             if is_onyx_bot_msg:
-                logger.info("Ignoring message from OnyxBot (self-message)")
+                logger.info("Ignoring message from CortexBot (self-message)")
                 return False
 
             # DMs with the bot don't pick up the @OnyxBot so we have to keep the
@@ -932,14 +932,14 @@ def prefilter_requests(req: SocketModeRequest, client: TenantSocketModeClient) -
 
         if not channel:
             channel_specific_logger.error(
-                "Received OnyxBot command without channel - skipping"
+                "Received CortexBot command without channel - skipping"
             )
             return False
 
         sender = req.payload.get("user_id")
         if not sender:
             channel_specific_logger.error(
-                "Cannot respond to OnyxBot command without sender to respond to."
+                "Cannot respond to CortexBot command without sender to respond to."
             )
             return False
 
@@ -1026,7 +1026,7 @@ def build_request_details(
                     tagged = True
 
         if tagged:
-            logger.debug("User tagged OnyxBot")
+            logger.debug("User tagged CortexBot")
 
         # Build Slack context for federated search
         # Get proper channel type from Slack API instead of relying on event.channel_type
@@ -1325,7 +1325,7 @@ def _check_tenant_gated(client: TenantSocketModeClient, req: SocketModeRequest) 
                 channel=channel,
                 thread_ts=thread_ts,
                 text=(
-                    "Your organization's subscription has expired. Please contact your Onyx administrator to restore access."
+                    "Your organization's subscription has expired. Please contact your Cortex One administrator to restore access."
                 ),
             )
     logger.info("Blocked Slack request for gated tenant %s", get_current_tenant_id())

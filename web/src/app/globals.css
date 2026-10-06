@@ -52,7 +52,11 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    /* Ambient wallpaper (defined in @opal/styles/glass.css) behind the glass panes. */
+    background: var(--wallpaper);
+    background-attachment: fixed;
+    background-size: cover;
     overscroll-behavior-y: none;
     overflow-anchor: none;
   }

@@ -25,7 +25,7 @@ pub struct AppConfig {
     #[serde(default)]
     pub hide_window_decorations: bool,
 
-    /// Global shortcut that summons Onyx from any app, in Tauri accelerator
+    /// Global shortcut that summons Cortex One from any app, in Tauri accelerator
     /// syntax. Explicit `null` in config.json disables it.
     #[serde(default = "default_summon_shortcut")]
     pub summon_shortcut: Option<String>,
@@ -35,7 +35,7 @@ pub struct AppConfig {
 }
 
 fn default_window_title() -> String {
-    "Onyx".to_string()
+    "Cortex One".to_string()
 }
 
 const fn default_show_menu_bar() -> bool {

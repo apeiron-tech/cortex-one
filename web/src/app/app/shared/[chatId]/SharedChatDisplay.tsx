@@ -11,7 +11,7 @@ import MultiModelResponseView from "@/app/app/message/MultiModelResponseView";
 import { getMultiModelResponses } from "@/app/app/message/multiModel";
 import { useLanguageModels } from "@/lib/languageModels/hooks";
 import { buildModelProviderLookup } from "@/lib/languageModels/options";
-import OnyxInitializingLoader from "@/components/OnyxInitializingLoader";
+import CortexInitializingLoader from "@/components/CortexInitializingLoader";
 import { Section } from "@/layouts/general-layouts";
 import { IllustrationContent } from "@opal/layouts";
 import SvgNotFound from "@opal/illustrations/not-found";
@@ -224,7 +224,7 @@ export default function SharedChatDisplay({
             </div>
           ) : (
             <div className="h-full w-full flex items-center justify-center">
-              <OnyxInitializingLoader />
+              <CortexInitializingLoader />
             </div>
           )}
         </div>

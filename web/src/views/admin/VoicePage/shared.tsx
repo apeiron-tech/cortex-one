@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import { useSettings } from "@/lib/settings/hooks";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { SvgOnyxLogo } from "@opal/logos";
+import { SvgCortexLogo } from "@opal/logos";
 import { Modal } from "@opal/components";
 import { ConfirmationModalLayout } from "@opal/layouts";
 import { InputSingleComboBoxField, InputSingleSelectField } from "@opal/form";
@@ -306,7 +306,7 @@ export function VoiceProviderSetupModal({
               <Modal.Header
                 icon={detail.icon}
                 moreIcon1={SvgArrowExchange}
-                moreIcon2={SvgOnyxLogo}
+                moreIcon2={SvgCortexLogo}
                 title={
                   isEditing
                     ? t("setupModal.editHeader.title", {

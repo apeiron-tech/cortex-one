@@ -107,14 +107,14 @@ def _build_readme(
 ) -> str:
     """Builds the README.txt content describing the export."""
     lines = [
-        "Onyx log export",
+        "Cortex One log export",
         "===============",
         "",
         SENSITIVE_DATA_WARNING,
         "",
         scope_note,
         "",
-        f"Onyx version: {__version__}",
+        f"Cortex One version: {__version__}",
         f"Hostname: {socket.gethostname()}",
         f"Collected at (UTC): {datetime.now(tz=timezone.utc).isoformat()}",
         "",

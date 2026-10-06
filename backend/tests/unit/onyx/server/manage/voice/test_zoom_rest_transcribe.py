@@ -44,7 +44,7 @@ class _ZoomProvider:
         _ = audio_data
         self.calls.append(audio_format)
         if audio_format != "pcm16":
-            raise ValueError("Zoom Scribe only supports pcm16 audio in Onyx.")
+            raise ValueError("Zoom Scribe only supports pcm16 audio in Cortex One.")
         return self.transcript
 
 

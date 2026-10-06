@@ -7,7 +7,7 @@ import { useSettings } from "@/lib/settings/hooks";
 import * as Yup from "yup";
 import { Button } from "@opal/components";
 import { SvgArrowExchange } from "@opal/icons";
-import { SvgOnyxLogo } from "@opal/logos";
+import { SvgCortexLogo } from "@opal/logos";
 import * as GeneralLayouts from "@/layouts/general-layouts";
 import { Modal } from "@opal/components";
 import { InputVertical, toast } from "@opal/layouts";
@@ -58,7 +58,7 @@ function ModalShell({ provider, isEditing, children }: ModalShellProps) {
         <Modal.Header
           icon={provider.icon}
           moreIcon1={SvgArrowExchange}
-          moreIcon2={SvgOnyxLogo}
+          moreIcon2={SvgCortexLogo}
           title={
             isEditing
               ? t("modal.manage.title", { provider: provider.displayName })

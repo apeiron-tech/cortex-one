@@ -592,7 +592,7 @@ def render_usage_report_pdf(data: UsageReportData, branding: ReportBranding) -> 
     if data.system_by_flow:
         story += _section(
             "System spend by flow",
-            "System usage is LLM activity that Onyx runs in the background "
+            "System usage is LLM activity that Cortex One runs in the background "
             "rather than for a specific user. Examples include image summaries, "
             "contextual RAG processing, and knowledge graph extraction.",
             styles,

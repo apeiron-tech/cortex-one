@@ -47,9 +47,9 @@ export const TRACING_PROVIDER_DETAILS: Record<
       {
         name: "project",
         labelKey: "providers.braintrust.fields.project.label",
-        placeholder: "Onyx",
+        placeholder: "Cortex One",
         optional: true,
-        defaultValue: "Onyx",
+        defaultValue: "Cortex One",
         descriptionKey: "providers.braintrust.fields.project.description",
       },
       {

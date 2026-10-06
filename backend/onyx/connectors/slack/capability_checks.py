@@ -488,7 +488,7 @@ class _ChannelJoinScopeCheck(CapabilityCheck):
             )
         if "channels:join" not in granted_scopes:
             raise InsufficientPermissionsError(
-                "The bot token lacks the `channels:join` scope, so Onyx cannot "
+                "The bot token lacks the `channels:join` scope, so Cortex One cannot "
                 "automatically join public channels. This is a warning, but it "
                 "usually still requires action: every public channel the bot "
                 "has not been invited to WILL fail to index. Either add the "
@@ -733,7 +733,7 @@ class _PermSyncPrivateChannelListingCheck(CapabilityCheck):
                 "only, so private-channel access lists are never created or "
                 "updated. Previously indexed private documents keep stale "
                 "access lists, so users removed from a private channel keep "
-                "access in Onyx.",
+                "access in Cortex One.",
             )
 
 
@@ -765,7 +765,7 @@ class _UserEmailVisibilityCheck(CapabilityCheck):
             _raise_for_slack_api_error(
                 e,
                 "The bot token cannot list users (`users.list`), which "
-                "permission sync requires to map Slack members to Onyx users "
+                "permission sync requires to map Slack members to Cortex One users "
                 "by email.",
             )
         human_members = [
@@ -783,7 +783,7 @@ class _UserEmailVisibilityCheck(CapabilityCheck):
         if not any(member.get("profile", {}).get("email") for member in human_members):
             raise InsufficientPermissionsError(
                 "`users.list` succeeded but returned no email addresses, so "
-                "permission sync cannot map Slack members to Onyx users. This "
+                "permission sync cannot map Slack members to Cortex One users. This "
                 "is how a missing `users:read.email` scope manifests -- Slack "
                 "omits the email field instead of raising a scope error."
             )
@@ -877,7 +877,7 @@ class _GridPublicChannelScopingCheck(CapabilityCheck):
                 "On Enterprise Grid, per-workspace user listing (`users.list` "
                 "with `team_id`) scopes public channels to their workspaces. "
                 "Without it, permission sync silently marks every public "
-                "channel visible org-wide in Onyx (over-sharing).",
+                "channel visible org-wide in Cortex One (over-sharing).",
             )
 
 

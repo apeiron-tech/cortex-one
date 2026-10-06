@@ -51,7 +51,7 @@ import { useSWRConfig } from "swr";
 import {
   SvgArrowExchange,
   SvgChevronDown,
-  SvgOnyxOctagon,
+  SvgCortexRing,
   SvgOrganization,
   SvgPlusCircle,
   SvgRefreshCw,
@@ -60,7 +60,7 @@ import {
   SvgUsers,
   SvgX,
 } from "@opal/icons";
-import SvgOnyxLogo from "@opal/logos/onyx-logo";
+import SvgCortexLogo from "@opal/logos/cortex-logo";
 import { Card, EmptyMessageCard } from "@opal/components";
 import { ContentAction } from "@opal/layouts";
 import type { ContentMdEditHandle } from "@opal/layouts/content/ContentMd";
@@ -422,7 +422,7 @@ export function ModelAccessField() {
             ) : (
               <div className="w-full p-2">
                 <Content
-                  icon={SvgOnyxOctagon}
+                  icon={SvgCortexRing}
                   title={t("access.noAgents.title")}
                   description={t("access.noAgents.description")}
                   variant="section"
@@ -1124,7 +1124,7 @@ function ModalWrapperInner({
           <Modal.Header
             icon={providerIcon}
             moreIcon1={SvgArrowExchange}
-            moreIcon2={SvgOnyxLogo}
+            moreIcon2={SvgCortexLogo}
             title={title}
             description={description}
             onClose={onClose}

@@ -4,7 +4,7 @@
 
 | Loader | Use it for |
 | ------ | ---------- |
-| `PageLoader` | A page or route that is loading: the Onyx mark with a label, centered. |
+| `PageLoader` | A page or route that is loading: the Cortex One mark with a label, centered. |
 | `CardLoader` | A card that has not loaded: a bordered card with a shimmering icon, title and description. |
 | `LineLoader` | Lines of text that have not loaded: shimmering rectangles. |
 | `TextLoader` | Real text for a status still in progress: the text itself shimmers. |

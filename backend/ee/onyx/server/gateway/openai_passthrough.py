@@ -58,7 +58,7 @@ _SANITIZED_ERROR = "The upstream LLM request failed."
 _TIMEOUT_ERROR = "The selected model did not respond in time."
 
 _NO_STORAGE_MESSAGE = (
-    "The Onyx gateway does not store responses; send the full "
+    "The Cortex One gateway does not store responses; send the full "
     "conversation in `input` instead of `{field}`."
 )
 
@@ -120,7 +120,7 @@ def _build_upstream_request(
     if body.get("background"):
         raise OnyxError(
             OnyxErrorCode.NOT_IMPLEMENTED,
-            "The Onyx gateway does not support `background` responses.",
+            "The Cortex One gateway does not support `background` responses.",
         )
     for tool in body.get("tools") or []:
         if not isinstance(tool, dict):
@@ -131,14 +131,14 @@ def _build_upstream_request(
             # account.
             raise OnyxError(
                 OnyxErrorCode.INVALID_INPUT,
-                "mcp tools are not supported by the Onyx gateway.",
+                "mcp tools are not supported by the Cortex One gateway.",
             )
         if tool_type == _TOOL_TYPE_FILE_SEARCH:
             # Requires org-scoped vector_store_ids no gateway caller can
             # own; we do not proxy /v1/vector_stores.
             raise OnyxError(
                 OnyxErrorCode.INVALID_INPUT,
-                "file_search tools are not supported by the Onyx gateway.",
+                "file_search tools are not supported by the Cortex One gateway.",
             )
         if tool_type == _TOOL_TYPE_CODE_INTERPRETER:
             container = tool.get("container")
@@ -151,7 +151,7 @@ def _build_upstream_request(
                 raise OnyxError(
                     OnyxErrorCode.INVALID_INPUT,
                     "code_interpreter tools referencing an existing container "
-                    "or uploaded files are not supported by the Onyx gateway.",
+                    "or uploaded files are not supported by the Cortex One gateway.",
                 )
     if isinstance(body.get("input"), list):
         for item in body["input"]:
@@ -170,14 +170,14 @@ def _build_upstream_request(
                     # we do not proxy /v1/files.
                     raise OnyxError(
                         OnyxErrorCode.INVALID_INPUT,
-                        "file_id references are not supported by the Onyx "
+                        "file_id references are not supported by the Cortex One "
                         "gateway; send file content inline.",
                     )
     if body.get("prompt") is not None:
         # A stored prompt template reference, scoped to our shared org key.
         raise OnyxError(
             OnyxErrorCode.INVALID_INPUT,
-            "prompt template references are not supported by the Onyx gateway.",
+            "prompt template references are not supported by the Cortex One gateway.",
         )
     body["model"] = model_name
     body["stream"] = stream

@@ -114,7 +114,7 @@ class MCPReauthenticationRequired(OAuthFlowError):
     """A non-interactive MCP operation requires a new browser grant."""
 
     def __init__(self) -> None:
-        super().__init__("Please reconnect to the server through Onyx.")
+        super().__init__("Please reconnect to the server through Cortex One.")
 
 
 def _refresh_log_context(
@@ -1070,7 +1070,7 @@ def make_oauth_provider(
         refresh_log_context=refresh_log_context,
         server_url=mcp_server.server_url,
         client_metadata=OAuthClientMetadata(
-            client_name=f"Onyx - {mcp_server.name}",
+            client_name=f"Cortex One - {mcp_server.name}",
             redirect_uris=[AnyUrl(mcp_oauth_redirect_uri())],
             grant_types=["authorization_code", "refresh_token"],
             response_types=["code"],

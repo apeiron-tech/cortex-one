@@ -128,7 +128,7 @@ async function apiLoginAndSaveState(
 
 /**
  * Set the user's display name via the personalization API. This dismisses the
- * first-time "What should Onyx call you?" prompt that otherwise covers the
+ * first-time "What should Cortex One call you?" prompt that otherwise covers the
  * chat UI and silently breaks tests that interact with the action popover.
  */
 async function setDisplayName(

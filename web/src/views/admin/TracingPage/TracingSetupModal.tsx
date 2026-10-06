@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { SvgArrowExchange } from "@opal/icons";
-import { SvgOnyxLogo } from "@opal/logos";
+import { SvgCortexLogo } from "@opal/logos";
 import { Button } from "@opal/components";
 import { Modal } from "@opal/components";
 import { useModalClose } from "@opal/components";
@@ -114,7 +114,7 @@ export function TracingSetupModal({ state, onSaved }: TracingSetupModalProps) {
               <Modal.Header
                 icon={detail.logo}
                 moreIcon1={SvgArrowExchange}
-                moreIcon2={SvgOnyxLogo}
+                moreIcon2={SvgCortexLogo}
                 title={
                   isEditing
                     ? t("setupModal.editTitle", { label: detail.label })

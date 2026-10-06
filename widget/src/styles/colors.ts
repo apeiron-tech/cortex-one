@@ -9,13 +9,13 @@ export const colors = css`
     --alpha-grey-100-75: #000000bf;
     --alpha-grey-100-20: #00000033;
 
-    /* Onyx Brand Colors */
-    --onyx-ink-100: #000000;
-    --onyx-ink-95: #1c1c1c;
+    /* Cortex One Brand Colors */
+    --cortex-blue-06: #0062d6;
+    --cortex-blue-05: #007aff;
 
     /* Theme / Primary - Configurable via env vars */
-    --theme-primary-06: var(--onyx-ink-100);
-    --theme-primary-05: var(--onyx-ink-95);
+    --theme-primary-06: var(--cortex-blue-06);
+    --theme-primary-05: var(--cortex-blue-05);
 
     /* Background / Neutral */
     --background-neutral-00: var(--grey-00);

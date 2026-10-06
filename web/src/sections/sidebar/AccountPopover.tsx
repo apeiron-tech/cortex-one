@@ -33,8 +33,7 @@ import { useSettings } from "@/lib/settings/hooks";
 import UserAvatar from "@/refresh-components/avatars/UserAvatar";
 import SidebarTabSkeleton from "@/refresh-components/skeletons/SidebarTabSkeleton";
 import { useNotificationSummary } from "@/hooks/useNotifications";
-import { SvgOnyxLogo } from "@opal/logos";
-import { markdown } from "@opal/utils";
+import { SvgCortexLogo } from "@opal/logos";
 import { useTranslations } from "next-intl";
 
 interface SettingsPopoverProps {
@@ -181,12 +180,8 @@ function SettingsPopover({
             variant="body"
             color="muted"
             orientation="reverse"
-            icon={SvgOnyxLogo}
-            title={markdown(
-              `[Onyx ${
-                settings.version ?? "dev"
-              }](https://docs.onyx.app/changelog)`
-            )}
+            icon={SvgCortexLogo}
+            title={`Cortex One ${settings.version ?? "dev"}`}
           />
         </div>,
       ]}

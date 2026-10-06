@@ -98,7 +98,7 @@ class TestTrialCopy:
             is_trial=True,
         )
 
-        assert title == "Onyx could not start your subscription"
+        assert title == "Cortex One could not start your subscription"
         assert "Your card was declined." in description
         assert "renewal" not in description.lower()
 
@@ -117,7 +117,7 @@ class TestNonTrialCopyIsUnchanged:
     ) -> None:
         title, description, _ = _build_copy(stage, EXPIRES, 0, is_trial=False)
 
-        assert "Onyx license expires" in title
+        assert "Cortex One license expires" in title
         assert expected in description
 
     def test_grace_still_tells_a_paid_customer_to_renew(self) -> None:

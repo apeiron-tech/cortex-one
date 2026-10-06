@@ -121,12 +121,12 @@ def _build_upstream_request(
         # arbitrary URLs under our account; refuse rather than forward.
         raise OnyxError(
             OnyxErrorCode.INVALID_INPUT,
-            "mcp_servers is not supported by the Onyx gateway.",
+            "mcp_servers is not supported by the Cortex One gateway.",
         )
     if body.get("container") is not None:
         raise OnyxError(
             OnyxErrorCode.INVALID_INPUT,
-            "container references are not supported by the Onyx gateway.",
+            "container references are not supported by the Cortex One gateway.",
         )
     pending: list[Any] = list(body.get("messages") or [])
     while pending:
@@ -139,7 +139,7 @@ def _build_upstream_request(
         ):
             raise OnyxError(
                 OnyxErrorCode.INVALID_INPUT,
-                "file_id references are not supported by the Onyx "
+                "file_id references are not supported by the Cortex One "
                 "gateway; send file content inline.",
             )
         content = part.get("content")

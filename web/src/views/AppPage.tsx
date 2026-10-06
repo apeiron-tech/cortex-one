@@ -14,7 +14,7 @@ import { Section } from "@/layouts/general-layouts";
 import { useLlmManager } from "@/lib/hooks";
 import { useFederatedConnectors } from "@/lib/connectors/hooks";
 import { useSendChatMessageFromURL } from "@/lib/chat/hooks";
-import OnyxInitializingLoader from "@/components/OnyxInitializingLoader";
+import CortexInitializingLoader from "@/components/CortexInitializingLoader";
 import { OnyxDocument, MinimalOnyxDocument } from "@/lib/search/types";
 import { useToolConfiguration } from "@/lib/tools/hooks";
 import { useSettings } from "@/lib/settings/hooks";
@@ -719,7 +719,7 @@ export default function AppPage({ firstMessage }: ChatPageProps) {
             : "1fr auto 1fr",
   };
 
-  if (!isReady) return <OnyxInitializingLoader />;
+  if (!isReady) return <CortexInitializingLoader />;
 
   return (
     <>

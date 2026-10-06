@@ -165,6 +165,6 @@ def build_onyx_gateway_config(
         # sandbox PAT; the key here is never used.
         api_key=SANDBOX_PROXY_INJECTED_PLACEHOLDER,
         api_base=api_base,
-        display_name="Onyx",
+        display_name="Cortex One",
         models=models,
     )

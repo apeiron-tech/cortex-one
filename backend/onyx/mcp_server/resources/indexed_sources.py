@@ -15,7 +15,7 @@ logger = setup_logger()
     "resource://indexed_sources",
     name="indexed_sources",
     description=(
-        "Enumerate the user's document sources that are currently indexed in Onyx."
+        "Enumerate the user's document sources that are currently indexed in Cortex One."
         "This can be used to discover filters for the `search_indexed_documents` tool."
     ),
     mime_type="application/json",
@@ -28,7 +28,7 @@ async def indexed_sources_resource() -> str:
     sources = await get_indexed_sources(access_token)
 
     logger.info(
-        "Onyx MCP Server: indexed_sources resource returning %s entries",
+        "Cortex One MCP Server: indexed_sources resource returning %s entries",
         len(sources),
     )
 

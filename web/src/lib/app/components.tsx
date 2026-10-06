@@ -6,7 +6,7 @@ import { DEFAULT_LOGO_SIZE_PX } from "@/lib/constants";
 import { cn } from "@opal/utils";
 import Text from "@/refresh-components/texts/Text";
 import Truncated from "@/refresh-components/texts/Truncated";
-import { SvgOnyxLogo, SvgOnyxLogoTyped } from "@opal/logos";
+import { SvgCortexLogo, SvgCortexLogoTyped } from "@opal/logos";
 import { IconProps } from "@opal/types";
 
 export interface LogoProps extends IconProps {
@@ -27,7 +27,7 @@ export function Logo({ size, className, style, onyxBranded }: LogoProps) {
 
   if (onyxBranded || !logoUrl) {
     return (
-      <SvgOnyxLogo
+      <SvgCortexLogo
         size={resolvedSize}
         className={cn("shrink-0", className)}
         style={style}
@@ -77,7 +77,7 @@ export function FoldableLogo({
     return folded ? (
       <Logo onyxBranded size={resolvedSize} className={className} />
     ) : (
-      <SvgOnyxLogoTyped size={resolvedSize} className={className} />
+      <SvgCortexLogoTyped size={resolvedSize} className={className} />
     );
   }
 
@@ -129,6 +129,6 @@ export function FoldableLogo({
   ) : folded ? (
     <Logo size={resolvedSize} className={className} />
   ) : (
-    <SvgOnyxLogoTyped size={resolvedSize} className={className} />
+    <SvgCortexLogoTyped size={resolvedSize} className={className} />
   );
 }

@@ -209,7 +209,7 @@ def verify_auth_setting() -> None:
         )
     if raw_auth_type in ("google_oauth", "oidc", "saml"):
         logger.warning(
-            "AUTH_TYPE='%s' single-provider mode was removed and Onyx is running "
+            "AUTH_TYPE='%s' single-provider mode was removed and Cortex One is running "
             "as 'basic'. SSO login is now served by SSO provider rows (Admin "
             "Panel > Organization > SSO Providers). Remove AUTH_TYPE and the "
             "legacy SSO env vars.",

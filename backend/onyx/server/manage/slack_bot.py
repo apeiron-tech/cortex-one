@@ -79,7 +79,7 @@ def _form_channel_config(
         and slack_channel_config_creation_request.respond_member_group_list
     ):
         raise ValueError(
-            "Cannot set OnyxBot to respond to users in a private (ephemeral) message "
+            "Cannot set CortexBot to respond to users in a private (ephemeral) message "
             "and also respond to a selected list of users."
         )
 

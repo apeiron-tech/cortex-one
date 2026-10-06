@@ -50,7 +50,7 @@ def _check_bot_config_api_access() -> None:
     if MULTI_TENANT:
         raise OnyxError(
             OnyxErrorCode.INSUFFICIENT_PERMISSIONS,
-            "Discord bot configuration is managed by Onyx on Cloud.",
+            "Discord bot configuration is managed by Cortex One on Cloud.",
         )
     if DISCORD_BOT_TOKEN:
         raise OnyxError(

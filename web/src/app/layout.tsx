@@ -28,6 +28,12 @@ import { DirectionProvider } from "@radix-ui/react-direction";
 import { cookies } from "next/headers";
 import { htmlDirForLocale, messageLocale, type HtmlDir } from "@/i18n/config";
 
+// Apple's system UI font leads on Apple devices (SF Pro on macOS and iOS, the
+// Tahoe look). Hanken Grotesk, loaded below, carries every other platform. The
+// variable keeps its historical name because Opal's presets read it.
+const SYSTEM_UI_FONT =
+  '-apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display"';
+
 // No generic at the end of either fallback list: the generic comes last in
 // the composed --font-* variables on <html> below, after the per-locale CJK
 // tail (--font-cjk-sans, defined in globals.css). A generic here would sit
@@ -98,7 +104,7 @@ export default async function Layout({ children }: LayoutProps) {
       // through these.
       style={
         {
-          "--font-hanken-grotesk": `${hankenGrotesk.style.fontFamily}, var(--font-cjk-sans), sans-serif`,
+          "--font-hanken-grotesk": `${SYSTEM_UI_FONT}, ${hankenGrotesk.style.fontFamily}, var(--font-cjk-sans), sans-serif`,
           "--font-dm-mono": `${dmMono.style.fontFamily}, var(--font-cjk-sans), monospace`,
         } as React.CSSProperties
       }
@@ -163,7 +169,7 @@ export default async function Layout({ children }: LayoutProps) {
                 enableSystem
                 disableTransitionOnChange
               >
-                <div className="text-text min-h-screen bg-background">
+                <div className="text-text min-h-screen">
                   <TooltipProvider>
                     <PHProvider>
                       <SWRConfigProvider>

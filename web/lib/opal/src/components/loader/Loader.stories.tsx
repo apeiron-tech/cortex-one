@@ -1,37 +1,37 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { OnyxLoader } from "@opal/components";
+import { CortexLoader } from "@opal/components";
 
-const meta: Meta<typeof OnyxLoader> = {
+const meta: Meta<typeof CortexLoader> = {
   title: "opal/components/Loader",
-  component: OnyxLoader,
+  component: CortexLoader,
   tags: ["autodocs"],
 };
 
 export default meta;
 type Story = StoryObj;
 
-// OnyxLoader: the branded octagon/logo crossfade.
+// CortexLoader: the branded C-ring spin with a pulsing core.
 
-export const OnyxMark: Story = {
-  render: () => <OnyxLoader />,
+export const CortexMark: Story = {
+  render: () => <CortexLoader />,
 };
 
-export const OnyxSizes: Story = {
+export const CortexSizes: Story = {
   render: () => (
     <div className="flex items-end gap-6">
-      <OnyxLoader size={24} />
-      <OnyxLoader size={40} />
-      <OnyxLoader size={64} />
+      <CortexLoader size={24} />
+      <CortexLoader size={40} />
+      <CortexLoader size={64} />
     </div>
   ),
 };
 
-export const OnyxColors: Story = {
+export const CortexColors: Story = {
   render: () => (
     <div className="flex items-end gap-6">
-      <OnyxLoader />
-      <OnyxLoader color="text-04" />
-      <OnyxLoader color="status-error-05" />
+      <CortexLoader />
+      <CortexLoader color="text-04" />
+      <CortexLoader color="status-error-05" />
     </div>
   ),
 };
@@ -40,7 +40,7 @@ export const OnyxColors: Story = {
 export const Inherit: Story = {
   render: () => (
     <div className="flex items-center gap-6 text-status-error-05">
-      <OnyxLoader color="inherit" />
+      <CortexLoader color="inherit" />
     </div>
   ),
 };

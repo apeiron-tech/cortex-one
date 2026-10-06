@@ -298,7 +298,7 @@ test.describe("Appearance Theme Settings @exclusive", () => {
     await themePage.clearCustomHelpLinkLabel();
   });
 
-  test("custom application name keeps the 'Powered by Onyx' tagline", async ({
+  test("custom application name keeps the 'Powered by Cortex One' tagline", async ({
     page,
   }) => {
     const settings = await (await page.request.get("/api/settings")).json();

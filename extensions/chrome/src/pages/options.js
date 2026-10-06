@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
     chrome.storage.local.set(values, () => {
       showStatusMessage(
         useOnyxAsDefault
-          ? "Settings updated. Open a new tab to test it out. Click on the extension icon to bring up Onyx from any page."
+          ? "Settings updated. Open a new tab to test it out. Click on the extension icon to bring up Cortex One from any page."
           : "Settings updated."
       );
     });
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
       statusElement.textContent =
         message ||
         (useOnyxAsDefault
-          ? "Settings updated. Open a new tab to test it out. Click on the extension icon to bring up Onyx from any page."
+          ? "Settings updated. Open a new tab to test it out. Click on the extension icon to bring up Cortex One from any page."
           : "Settings updated.");
 
       if (newTabButton) {

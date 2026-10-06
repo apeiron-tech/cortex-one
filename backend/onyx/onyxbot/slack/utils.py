@@ -144,7 +144,7 @@ def check_message_limit() -> bool:
         _ONYX_BOT_COUNT_START_TIME = time.time()
     if (_ONYX_BOT_MESSAGE_COUNT + 1) > ONYX_BOT_RESPONSE_LIMIT_PER_TIME_PERIOD:
         logger.error(
-            "OnyxBot has reached the message limit %s"
+            "CortexBot has reached the message limit %s"
             " for the time period %s seconds."
             " These limits are configurable in backend/onyx/configs/onyxbot_configs.py",
             ONYX_BOT_RESPONSE_LIMIT_PER_TIME_PERIOD,
@@ -232,7 +232,7 @@ def _build_error_block(error_message: str) -> Block:
     the error without completely breaking
     """
     display_text = (
-        "There was an error displaying all of the Onyx answers."
+        "There was an error displaying all of the Cortex One answers."
         f" Please let an admin or an onyx developer know. Error: {error_message}"
     )
     return SectionBlock(text=display_text)
@@ -597,7 +597,7 @@ def read_slack_thread(
                 # auto-detected filters
                 blocks = reply.get("blocks")
                 if not blocks:
-                    logger.warning("OnyxBot response has no blocks: %s", reply)
+                    logger.warning("CortexBot response has no blocks: %s", reply)
                     continue
 
                 message = blocks[0].get("text", {}).get("text")

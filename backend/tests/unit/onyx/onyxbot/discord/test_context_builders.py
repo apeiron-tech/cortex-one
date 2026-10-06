@@ -642,4 +642,4 @@ class TestContextFormatting:
         result = _format_messages_as_context([msg], mock_bot_user)
 
         assert result is not None
-        assert "OnyxBot:" in result
+        assert "CortexBot:" in result

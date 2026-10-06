@@ -15,7 +15,7 @@ logger = setup_logger()
     "resource://agents",
     name="agents",
     description=(
-        "Enumerate the Onyx agents accessible to the current user. Use a "
+        "Enumerate the Cortex One agents accessible to the current user. Use a "
         "returned `name` value with the `agent` filter of the "
         "`search_indexed_documents` tool to run a search with that agent's "
         "knowledge scope and model."
@@ -32,7 +32,7 @@ async def agents_resource() -> str:
     )
 
     logger.info(
-        "Onyx MCP Server: agents resource returning %s entries",
+        "Cortex One MCP Server: agents resource returning %s entries",
         len(agents),
     )
 

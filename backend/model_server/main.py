@@ -126,7 +126,7 @@ def get_model_app() -> FastAPI:
     configure_trusted_ca_bundle()
 
     application = FastAPI(
-        title="Onyx Model Server", version=__version__, lifespan=lifespan
+        title="Cortex One Model Server", version=__version__, lifespan=lifespan
     )
     if SENTRY_DSN:
         from onyx.configs.sentry import init_sentry
@@ -164,7 +164,7 @@ def run_server() -> None:
     # drive the bind host.
     host = "0.0.0.0"  # noqa: S104
     logger.notice(
-        "Starting Onyx Model Server on http://%s:%s/",
+        "Starting Cortex One Model Server on http://%s:%s/",
         host,
         str(MODEL_SERVER_PORT),
     )

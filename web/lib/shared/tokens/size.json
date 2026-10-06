@@ -292,19 +292,19 @@
     "type": "dimension"
   },
   "radius-08": {
-    "value": "0.5rem",
+    "value": "0.625rem",
     "type": "dimension"
   },
   "radius-12": {
-    "value": "0.75rem",
+    "value": "0.875rem",
     "type": "dimension"
   },
   "radius-16": {
-    "value": "1rem",
+    "value": "1.25rem",
     "type": "dimension"
   },
   "radius-20": {
-    "value": "1.25rem",
+    "value": "1.625rem",
     "type": "dimension"
   },
   "radius-round": {
@@ -312,15 +312,15 @@
     "type": "dimension"
   },
   "backdrop-blur-01": {
-    "value": "2px",
+    "value": "6px",
     "type": "dimension"
   },
   "backdrop-blur-02": {
-    "value": "1px",
+    "value": "10px",
     "type": "dimension"
   },
   "backdrop-blur-03": {
-    "value": "1px",
+    "value": "14px",
     "type": "dimension"
   }
 }

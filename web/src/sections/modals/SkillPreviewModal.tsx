@@ -37,7 +37,10 @@ interface MetadataRow {
 function metadataRows(preview: SkillPreview): MetadataRow[] {
   const rows: MetadataRow[] = [];
   if (preview.source === "builtin") {
-    rows.push({ labelKey: "preview.metadata.createdBy.label", value: "Onyx" });
+    rows.push({
+      labelKey: "preview.metadata.createdBy.label",
+      value: "Cortex One",
+    });
   } else if (preview.author_email) {
     rows.push({
       labelKey: "preview.metadata.createdBy.label",

@@ -1283,8 +1283,8 @@
       },
       "slackChannelChart": {
         "description": "Total des requêtes et requêtes résolues automatiquement",
-        "empty": "Aucune activité OnyxBot dans cet espace de travail sur la période sélectionnée.",
-        "error": "Échec de la récupération des données OnyxBot.",
+        "empty": "Aucune activité CortexBot dans cet espace de travail sur la période sélectionnée.",
+        "error": "Échec de la récupération des données CortexBot.",
         "series": {
           "autoResolved": {
             "label": "Résolues automatiquement"
@@ -1487,7 +1487,7 @@
           "label": "Clé de licence expirée"
         },
         "keyField": {
-          "description": "Collez ou joignez le fichier de clé de licence que vous avez reçu d'Onyx.",
+          "description": "Collez ou joignez le fichier de clé de licence que vous avez reçu d'Cortex One.",
           "title": "Clé de licence"
         },
         "updateKey": {
@@ -2562,7 +2562,7 @@
       "oneDrive": {
         "description": "Configurer le connecteur OneDrive",
         "indexingScope": {
-          "label": "Quels fichiers OneDrive Onyx doit-il indexer ?",
+          "label": "Quels fichiers OneDrive Cortex One doit-il indexer ?",
           "general": {
             "label": "Général",
             "description": "Indexer tous les utilisateurs admissibles auxquels l’application Microsoft peut accéder."
@@ -2582,7 +2582,7 @@
         },
         "organizationLinks": {
           "label": "Traiter les liens de l’organisation comme publics",
-          "description": "Rendre les fichiers partagés par un lien à l’échelle de l’organisation visibles par tous les utilisateurs Onyx."
+          "description": "Rendre les fichiers partagés par un lien à l’échelle de l’organisation visibles par tous les utilisateurs Cortex One."
         },
         "authorityHost": {
           "label": "Hôte d’autorité",
@@ -3106,7 +3106,7 @@
         "title": "Aucun utilisateur trouvé"
       },
       "header": {
-        "description": "Contrôlez qui peut utiliser Craft, le créateur d'applications agentiques d'Onyx.",
+        "description": "Contrôlez qui peut utiliser Craft, le créateur d'applications agentiques d'Cortex One.",
         "title": "Accès"
       },
       "perUserAccess": {
@@ -3137,7 +3137,7 @@
         }
       },
       "unavailable": {
-        "description": "Craft est activé déploiement par déploiement par Onyx. Contactez votre représentant Onyx pour y accéder.",
+        "description": "Craft est activé déploiement par déploiement par Cortex One. Contactez votre représentant Cortex One pour y accéder.",
         "title": "Craft n'est pas disponible sur ce déploiement"
       },
       "usersLoadError": {
@@ -3223,7 +3223,7 @@
         "label": "Essayer dans Craft"
       },
       "unavailable": {
-        "description": "Craft est activé déploiement par déploiement par Onyx. Contactez votre représentant Onyx pour y accéder.",
+        "description": "Craft est activé déploiement par déploiement par Cortex One. Contactez votre représentant Cortex One pour y accéder.",
         "title": "Craft n'est pas disponible sur ce déploiement"
       }
     },
@@ -3976,7 +3976,7 @@
         "title": "Exporter les journaux"
       },
       "header": {
-        "description": "Téléchargez une archive zip des fichiers journaux du serveur à joindre à une demande de support Onyx."
+        "description": "Téléchargez une archive zip des fichiers journaux du serveur à joindre à une demande de support Cortex One."
       },
       "receipt": {
         "duplicateHost": {
@@ -4091,7 +4091,7 @@
         "noCustomSkills": "aucune compétence personnalisée",
         "orgCredentialsSet": "identifiants de l'organisation définis",
         "perUserCredentials": "identifiants par utilisateur",
-        "providedByOnyx": "fourni par Onyx",
+        "providedByOnyx": "fourni par Cortex One",
         "tools": "{count, plural, one {# outil} other {# outils}}",
         "upstreamPatterns": "{count, plural, one {# motif en amont} other {# motifs en amont}}"
       },
@@ -4521,7 +4521,7 @@
           "placeholder": "Limite de coût",
           "unit": "(USD)"
         },
-        "disabledTooltip": "Les limites de débit de jetons sont disponibles uniquement dans la [version Enterprise d'Onyx](/admin/billing).",
+        "disabledTooltip": "Les limites de débit de jetons sont disponibles uniquement dans la [version Enterprise d'Cortex One](/admin/billing).",
         "section": {
           "description": "Limitez le nombre de jetons que ce groupe peut utiliser sur une période donnée.",
           "title": "Limite de débit de jetons"
@@ -5080,7 +5080,7 @@
         }
       },
       "cloudDisabled": {
-        "tooltip": "Ce paramètre est géré par Onyx Cloud."
+        "tooltip": "Ce paramètre est géré par Cortex One Cloud."
       },
       "contextualModel": {
         "description": "Ce modèle servira à générer le contexte des segments.",
@@ -5094,7 +5094,7 @@
       },
       "embeddingModel": {
         "cloudManaged": {
-          "title": "Le modèle d'embedding et ses paramètres sont gérés par Onyx Cloud."
+          "title": "Le modèle d'embedding et ses paramètres sont gérés par Cortex One Cloud."
         },
         "description": "{appName} utilise ce modèle pour encoder les documents pour la recherche et la récupération.",
         "title": "Modèle d'embedding"
@@ -6147,7 +6147,7 @@
         },
         "requestSentBody": "Votre demande d'adhésion a été envoyée. Vous pouvez explorer avec votre propre équipe en attendant qu'un administrateur de {domain} approuve votre demande.",
         "tryOnyxButton": {
-          "label": "Essayer Onyx en attendant"
+          "label": "Essayer Cortex One en attendant"
         }
       },
       "newTenant": {
@@ -6958,7 +6958,7 @@
         }
       },
       "liteModeNotice": {
-        "description": "Ce déploiement utilise Onyx Lite, qui n'a pas de base de données vectorielle : les connecteurs et l'indexation des documents sont désactivés, et rien n'est indexé. Pour connecter des sources de données et indexer des documents, déployez Onyx en **mode Standard**. Consultez le [guide de déploiement]({docsUrl}) pour commencer.",
+        "description": "Ce déploiement utilise Cortex One Lite, qui n'a pas de base de données vectorielle : les connecteurs et l'indexation des documents sont désactivés, et rien n'est indexé. Pour connecter des sources de données et indexer des documents, déployez Cortex One en **mode Standard**. Consultez le [guide de déploiement]({docsUrl}) pour commencer.",
         "title": "L'indexation est indisponible en mode Lite"
       },
       "providerCard": {
@@ -6984,10 +6984,10 @@
     "slackBots": {
       "channelConfig": {
         "createError": {
-          "toast": "Erreur lors de la création de la configuration OnyxBot : {error}"
+          "toast": "Erreur lors de la création de la configuration CortexBot : {error}"
         },
         "updateError": {
-          "toast": "Erreur lors de la mise à jour de la configuration OnyxBot : {error}"
+          "toast": "Erreur lors de la mise à jour de la configuration CortexBot : {error}"
         }
       },
       "channels": {
@@ -7086,7 +7086,7 @@
         },
         "answerValidity": {
           "label": "Répondre uniquement si des citations sont trouvées",
-          "tooltip": "Si activé, OnyxBot ne répond qu'aux questions pour lesquelles le modèle produit des citations"
+          "tooltip": "Si activé, CortexBot ne répond qu'aux questions pour lesquelles le modèle produit des citations"
         },
         "cancelButton": {
           "label": "Annuler"
@@ -7105,16 +7105,16 @@
         },
         "disableDefault": {
           "label": "Désactiver la configuration par défaut",
-          "warning": "Avertissement : si vous désactivez la configuration par défaut, OnyxBot ne répond pas dans les canaux Slack, sauf s'ils sont explicitement configurés. De plus, OnyxBot ne répond pas aux DM."
+          "warning": "Avertissement : si vous désactivez la configuration par défaut, CortexBot ne répond pas dans les canaux Slack, sauf s'ils sont explicitement configurés. De plus, CortexBot ne répond pas aux DM."
         },
         "documentSets": {
           "autoSyncedDisabled": {
-            "tooltip": "Impossible d'utiliser cet ensemble de documents car il contient un connecteur avec des autorisations de synchronisation automatique. Les réponses d'OnyxBot dans ce canal sont visibles par tous les utilisateurs Slack : reproduire les autorisations de l'auteur de la question pourrait donc exposer par inadvertance des informations privées."
+            "tooltip": "Impossible d'utiliser cet ensemble de documents car il contient un connecteur avec des autorisations de synchronisation automatique. Les réponses d'CortexBot dans ce canal sont visibles par tous les utilisateurs Slack : reproduire les autorisations de l'auteur de la question pourrait donc exposer par inadvertance des informations privées."
           },
           "autoSyncedNote": {
             "text": "Ces ensembles de documents ne peuvent pas être joints car ils contiennent des documents synchronisés automatiquement :"
           },
-          "description": "Sélectionnez les ensembles de documents qu'OnyxBot utilisera pour répondre aux questions dans Slack.",
+          "description": "Sélectionnez les ensembles de documents qu'CortexBot utilisera pour répondre aux questions dans Slack.",
           "hideUnselectableButton": {
             "label": "Masquer les ensembles de documents non sélectionnables"
           },
@@ -7139,12 +7139,12 @@
         },
         "isEphemeral": {
           "label": "Répondre à l'utilisateur dans un message privé (éphémère)",
-          "tooltip": "Si activé, OnyxBot répond uniquement à l'utilisateur dans un message privé (éphémère). Si vous avez aussi choisi l'agent 'Recherche' ci-dessus, cette option rend les documents privés de l'utilisateur disponibles pour ses requêtes."
+          "tooltip": "Si activé, CortexBot répond uniquement à l'utilisateur dans un message privé (éphémère). Si vous avez aussi choisi l'agent 'Recherche' ci-dessus, cette option rend les documents privés de l'utilisateur disponibles pour ses requêtes."
         },
         "knowledgeSource": {
           "allPublic": {
             "label": "Toutes les connaissances publiques",
-            "sublabel": "Laissez OnyxBot répondre à partir des informations de tous les connecteurs publics"
+            "sublabel": "Laissez CortexBot répondre à partir des informations de tous les connecteurs publics"
           },
           "documentSets": {
             "label": "Ensembles de documents précis",
@@ -7161,7 +7161,7 @@
           }
         },
         "nonSearchAgent": {
-          "description": "Sélectionnez l'agent sans recherche qu'OnyxBot utilisera pour répondre aux questions dans Slack."
+          "description": "Sélectionnez l'agent sans recherche qu'CortexBot utilisera pour répondre aux questions dans Slack."
         },
         "privacyAlert": {
           "connectors": {
@@ -7172,7 +7172,7 @@
         },
         "questionmarkPrefilter": {
           "label": "Répondre uniquement aux questions",
-          "tooltip": "Si activé, OnyxBot ne répond qu'aux messages qui contiennent un point d'interrogation"
+          "tooltip": "Si activé, CortexBot ne répond qu'aux messages qui contiennent un point d'interrogation"
         },
         "removedDocumentSets": {
           "toast": "Nous avons retiré un ou plusieurs ensembles de documents de votre sélection car ils ne sont plus valides. Veuillez vérifier et mettre à jour votre configuration."
@@ -7182,15 +7182,15 @@
             "tooltip": "Désactivé tant que l'option 'Répondre à l'utilisateur dans un message privé (éphémère)' est active — les réponses éphémères ne ciblent qu'un seul utilisateur."
           },
           "label": "(Facultatif) Répondre à certains utilisateurs / groupes",
-          "subtext": "Si vous en indiquez, seuls ces utilisateurs / groupes peuvent solliciter OnyxBot dans ce canal, et les réponses ne sont visibles que par eux."
+          "subtext": "Si vous en indiquez, seuls ces utilisateurs / groupes peuvent solliciter CortexBot dans ce canal, et les réponses ne sont visibles que par eux."
         },
         "respondTagOnly": {
-          "label": "Répondre uniquement à @OnyxBot",
-          "tooltip": "Si activé, OnyxBot ne répond que lorsqu'il est directement mentionné"
+          "label": "Répondre uniquement à @CortexBot",
+          "tooltip": "Si activé, CortexBot ne répond que lorsqu'il est directement mentionné"
         },
         "respondToBots": {
           "label": "Répondre aux messages des bots",
-          "tooltip": "Si désactivé, OnyxBot ignore toujours les messages des bots"
+          "tooltip": "Si désactivé, CortexBot ignore toujours les messages des bots"
         },
         "responseType": {
           "detailed": {
@@ -7200,10 +7200,10 @@
           "standard": {
             "label": "Standard"
           },
-          "tooltip": "Contrôle le format des réponses d'OnyxBot."
+          "tooltip": "Contrôle le format des réponses d'CortexBot."
         },
         "searchAgent": {
-          "description": "Sélectionnez l'agent avec recherche qu'OnyxBot utilisera pour répondre aux questions dans Slack."
+          "description": "Sélectionnez l'agent avec recherche qu'CortexBot utilisera pour répondre aux questions dans Slack."
         },
         "searchConfig": {
           "section": {
@@ -7219,7 +7219,7 @@
           "section": {
             "prompt": "Configurer le bouton Toujours besoin d'aide"
           },
-          "tooltip": "La réponse d'OnyxBot inclura en bas un bouton qui demande à l'utilisateur s'il a encore besoin d'aide."
+          "tooltip": "La réponse d'CortexBot inclura en bas un bouton qui demande à l'utilisateur s'il a encore besoin d'aide."
         },
         "syncEnabledAgents": {
           "hideButton": {
@@ -7240,17 +7240,17 @@
       },
       "intro": {
         "autoAnswer": {
-          "item": "Configurer OnyxBot pour répondre automatiquement aux questions dans certains canaux."
+          "item": "Configurer CortexBot pour répondre automatiquement aux questions dans certains canaux."
         },
         "description": "Configurez des bots Slack connectés à {appName}. Une fois la configuration terminée, vous pourrez poser des questions à {appName} directement depuis Slack. Vous pouvez aussi :",
         "directMessage": {
-          "item": "Envoyer un message direct à OnyxBot pour faire une recherche, comme dans l'interface web."
+          "item": "Envoyer un message direct à CortexBot pour faire une recherche, comme dans l'interface web."
         },
         "docsPrompt": {
-          "text": "Suivez le <link>guide</link> de la documentation Onyx pour commencer !"
+          "text": "Suivez le <link>guide</link> de la documentation Cortex One pour commencer !"
         },
         "documentSets": {
-          "item": "Choisir les ensembles de documents à partir desquels OnyxBot doit répondre, selon le canal où la question est posée."
+          "item": "Choisir les ensembles de documents à partir desquels CortexBot doit répondre, selon le canal où la question est posée."
         }
       },
       "list": {
@@ -7268,7 +7268,7 @@
       },
       "newChannel": {
         "header": {
-          "title": "Configurer OnyxBot pour un canal Slack"
+          "title": "Configurer CortexBot pour un canal Slack"
         }
       },
       "table": {
@@ -7763,7 +7763,7 @@
         "label": "Avis contextuel lors de la première visite"
       },
       "appName": {
-        "description": "Ce nom apparaîtra dans toute l'application et remplacera \"Onyx\" dans l'interface.",
+        "description": "Ce nom apparaîtra dans toute l'application et remplacera \"Cortex One\" dans l'interface.",
         "label": "Nom d'affichage de l'application"
       },
       "chatFooter": {
@@ -7789,7 +7789,7 @@
         "label": "Message d'accueil"
       },
       "helpLink": {
-        "description": "Ajoutez un lien d'aide personnalisé dans le menu utilisateur en plus de la documentation Onyx.",
+        "description": "Ajoutez un lien d'aide personnalisé dans le menu utilisateur en plus de la documentation Cortex One.",
         "enterpriseTooltip": "Le lien d'aide personnalisé est une fonctionnalité du forfait Enterprise.",
         "label": "Lien d'aide personnalisé"
       },
@@ -9262,7 +9262,7 @@
         "label": "Créer une nouvelle organisation"
       },
       "createTeamOption": {
-        "text": "Créer une nouvelle équipe Onyx"
+        "text": "Créer une nouvelle équipe Cortex One"
       },
       "differentEmailPrompt": {
         "text": "Vous avez un compte avec une autre adresse e-mail ?"
@@ -9271,10 +9271,10 @@
         "title": "Compte introuvable"
       },
       "inviteOption": {
-        "text": "Être invité dans une équipe Onyx existante"
+        "text": "Être invité dans une équipe Cortex One existante"
       },
       "notFound": {
-        "description": "Nous n'avons pas trouvé votre compte dans nos registres. Pour accéder à Onyx, vous devez :"
+        "description": "Nous n'avons pas trouvé votre compte dans nos registres. Pour accéder à Cortex One, vous devez :"
       },
       "signInLink": {
         "label": "Se connecter"
@@ -9343,7 +9343,7 @@
         "description": "Restrictions d'accès ou autorisations du compte"
       },
       "cloudSupportPrompt": {
-        "text": "Si le problème persiste, contactez l'équipe Onyx à <link>support@onyx.app</link>"
+        "text": "Si le problème persiste, contactez l'équipe Cortex One à <link>support@onyx.app</link>"
       },
       "code": {
         "accessDenied": "Votre fournisseur d'identité a refusé l'accès.",
@@ -11733,7 +11733,7 @@
         "alt": "Logo"
       },
       "poweredBy": {
-        "label": "Propulsé par Onyx"
+        "label": "Propulsé par Cortex One"
       }
     },
     "modelSelectors": {
@@ -11936,8 +11936,8 @@
             "label": "Nom"
           }
         },
-        "managedDescription": "Fourni par Onyx : configurez ce que l'agent peut faire.",
-        "managedNote": "Cette app est fournie par Onyx : les identifiants sont gérés pour vous. Choisissez ci-dessous ce que l'agent peut faire. Les utilisateurs la connectent depuis la page Apps.",
+        "managedDescription": "Fourni par Cortex One : configurez ce que l'agent peut faire.",
+        "managedNote": "Cette app est fournie par Cortex One : les identifiants sont gérés pour vous. Choisissez ci-dessous ce que l'agent peut faire. Les utilisateurs la connectent depuis la page Apps.",
         "saveButton": "Enregistrer"
       },
       "customApp": {
@@ -12022,14 +12022,14 @@
           "startAuthFailed": "Échec du démarrage de l'autorisation"
         },
         "header": {
-          "description": "Connectez les outils qu'Onyx Craft peut utiliser comme contexte pendant son travail.",
+          "description": "Connectez les outils qu'Cortex Craft peut utiliser comme contexte pendant son travail.",
           "manageButton": "Gérer les apps",
           "searchPlaceholder": "Rechercher des apps...",
           "title": "Apps"
         },
         "kinds": {
           "app": {
-            "blurb": "Intégrations prises en charge directement par Onyx. Chacune inclut des compétences qui apprennent à Craft à l'utiliser : commencez ici.",
+            "blurb": "Intégrations prises en charge directement par Cortex One. Chacune inclut des compétences qui apprennent à Craft à l'utiliser : commencez ici.",
             "empty": "Aucune app n'est encore configurée pour votre organisation.",
             "emptyTitle": "Aucune app pour le moment",
             "tabLabel": "Apps · {count}"
@@ -12404,7 +12404,7 @@
       },
       "llmLocked": {
         "backToChatButton": "Retour au chat",
-        "description": "Onyx Craft a besoin d'un fournisseur de modèles, et seuls les administrateurs peuvent en configurer un. Demandez à votre administrateur de connecter Anthropic, OpenAI ou OpenRouter.",
+        "description": "Cortex Craft a besoin d'un fournisseur de modèles, et seuls les administrateurs peuvent en configurer un. Demandez à votre administrateur de connecter Anthropic, OpenAI ou OpenRouter.",
         "title": "Un fournisseur de LLM est requis"
       },
       "llmSetup": {
@@ -13965,10 +13965,10 @@
     },
     "adminSidebar": {
       "businessOrEnterpriseOnly": {
-        "tooltip": "Cette fonctionnalité est disponible uniquement dans la [version Business ou Enterprise d'Onyx](/admin/billing)."
+        "tooltip": "Cette fonctionnalité est disponible uniquement dans la [version Business ou Enterprise d'Cortex One](/admin/billing)."
       },
       "enterpriseOnly": {
-        "tooltip": "Cette fonctionnalité est disponible uniquement dans la [version Enterprise d'Onyx](/admin/billing)."
+        "tooltip": "Cette fonctionnalité est disponible uniquement dans la [version Enterprise d'Cortex One](/admin/billing)."
       },
       "exitAdminPanel": {
         "label": "Quitter le panneau d'administration"

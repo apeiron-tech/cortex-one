@@ -220,7 +220,7 @@ export function getSingleConfigFieldValueForForm(
 
 export const CONTENT_PROVIDER_DETAILS: Record<string, ContentProviderDetail> = {
   onyx_web_crawler: {
-    label: "Onyx Web Crawler",
+    label: "Cortex One Web Crawler",
     subtitleKey: "contentProviders.onyxWebCrawler.subtitle",
   },
   firecrawl: {

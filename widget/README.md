@@ -1,4 +1,4 @@
-# Onyx Chat Widget
+# Cortex One Chat Widget
 
 An embeddable, lightweight chat widget that brings AI-powered conversations to any website. Built with [Lit](https://lit.dev/) web components for maximum compatibility and minimal bundle size.
 
@@ -6,7 +6,7 @@ An embeddable, lightweight chat widget that brings AI-powered conversations to a
 
 The widget runs in the browser, so whatever credential it holds is visible to the visitor. Pick one of the two modes below.
 
-- **JWT passthrough** — the host page supplies the visitor's own identity-provider token, and each visitor acts as their own Onyx user. No shared secret goes in the page. Use this when the host page already signs the visitor in with the same IdP as Onyx. Single-tenant (self-hosted) deployments only. See [docs/WIDGET_JWT_PASSTHROUGH.md](../docs/WIDGET_JWT_PASSTHROUGH.md).
+- **JWT passthrough** — the host page supplies the visitor's own identity-provider token, and each visitor acts as their own Cortex One user. No shared secret goes in the page. Use this when the host page already signs the visitor in with the same IdP as Cortex One. Single-tenant (self-hosted) deployments only. See [docs/WIDGET_JWT_PASSTHROUGH.md](../docs/WIDGET_JWT_PASSTHROUGH.md).
 - **API key** — ⚠️ **always use a limited-scope API key.** The key is visible in client-side code, so it should have restricted permissions and rate limits. Never use admin or full-access keys.
 
 ## Features
@@ -63,7 +63,7 @@ That's it! The widget will appear as a floating button in the bottom-right corne
                │ API Calls (SSE)
                ▼
 ┌──────────────────────────────────────────┐
-│         Onyx Backend                     │
+│         Cortex One Backend                     │
 │  • POST /api/chat/create-chat-session    │
 │  • POST /api/chat/send-chat-message      │
 │  • Streams responses via SSE             │
@@ -97,7 +97,7 @@ That's it! The widget will appear as a floating button in the bottom-right corne
           └─ Input Area
               ├─ Text Input
               ├─ Send Button
-              └─ "Powered by Onyx" Footer
+              └─ "Powered by Cortex One" Footer
 ```
 
 ## Configuration Options
@@ -106,7 +106,7 @@ That's it! The widget will appear as a floating button in the bottom-right corne
 
 | Attribute     | Type   | Description                                                          |
 | ------------- | ------ | -------------------------------------------------------------------- |
-| `backend-url` | string | Your Onyx backend API URL (or set `VITE_WIDGET_BACKEND_URL` in .env) |
+| `backend-url` | string | Your Cortex One backend API URL (or set `VITE_WIDGET_BACKEND_URL` in .env) |
 | `api-key`     | string | API key for authentication (or set `VITE_WIDGET_API_KEY` in .env). Omit it when you use a `tokenProvider` — see [Authentication](#authentication). |
 
 **Note**: For cloud deployment, these must be provided as HTML attributes. For self-hosted deployment, they can be set in `.env` file during build and will be baked into the bundle.
@@ -117,7 +117,7 @@ That's it! The widget will appear as a floating button in the bottom-right corne
 | ------------------ | ------ | ------------- | ---------------------------------------- |
 | `agent-id`         | number | `undefined`   | Specific agent/persona to use            |
 | `agent-name`       | string | `"Assistant"` | Display name in header                   |
-| `logo`             | string | Onyx logo     | URL to custom logo image                 |
+| `logo`             | string | Cortex One logo     | URL to custom logo image                 |
 | `primary-color`    | string  | `#1c1c1c`     | Primary brand color (buttons, accents)   |
 | `background-color` | string  | `#e9e9e9`     | Widget background color                  |
 | `text-color`       | string  | `#000000bf`   | Text color (75% opacity black)           |
@@ -129,7 +129,7 @@ That's it! The widget will appear as a floating button in the bottom-right corne
 
 **Note on `include-citations`**: the attribute is a boolean flag, so its presence alone means `true`. `include-citations="false"` still turns citations **on**. Omit the attribute to turn them off.
 
-Citations are off by default. While they are off, Onyx strips the citation markers from the answer text and sends no citation data, so the widget renders no source links. Add the bare attribute to get inline `[n]` markers and clickable source badges:
+Citations are off by default. While they are off, Cortex One strips the citation markers from the answer text and sends no citation data, so the widget renders no source links. Add the bare attribute to get inline `[n]` markers and clickable source badges:
 
 ```html
 <onyx-chat-widget backend-url="https://onyx.example.com/api" include-citations>
@@ -181,11 +181,11 @@ The widget sends a bearer credential on every backend call. It gets that credent
 
 ### API key
 
-Set the `api-key` attribute. The same key is used for every visitor, so all conversations run as one Onyx service account.
+Set the `api-key` attribute. The same key is used for every visitor, so all conversations run as one Cortex One service account.
 
 ### JWT passthrough (`tokenProvider`)
 
-Assign a `tokenProvider` function and leave `api-key` off. The widget calls it before every request attempt, retries included, so the host controls expiry and refresh. Each visitor is a separate Onyx user, and per-user document permissions apply.
+Assign a `tokenProvider` function and leave `api-key` off. The widget calls it before every request attempt, retries included, so the host controls expiry and refresh. Each visitor is a separate Cortex One user, and per-user document permissions apply.
 
 The stored transcript is scoped to the token subject, so a second person signing in on the same tab starts a fresh conversation instead of seeing the previous one.
 
@@ -206,7 +206,7 @@ The stored transcript is scoped to the token subject, so a second person signing
 
 `tokenProvider` is a JavaScript property, not an HTML attribute, because attributes cannot hold functions. Assign it at any time — the widget reads the property when it sends a request, not when it mounts.
 
-Onyx must be configured to accept these tokens. The setup, the required claims, and the CORS and provisioning caveats are in [docs/WIDGET_JWT_PASSTHROUGH.md](../docs/WIDGET_JWT_PASSTHROUGH.md).
+Cortex One must be configured to accept these tokens. The setup, the required claims, and the CORS and provisioning caveats are in [docs/WIDGET_JWT_PASSTHROUGH.md](../docs/WIDGET_JWT_PASSTHROUGH.md).
 
 **Precedence**: when both are present, `tokenProvider` wins. When neither resolves to a credential, the widget shows an error instead of sending the request.
 
@@ -254,7 +254,7 @@ Handlers registered in the capture phase still run first. If such a handler bloc
 ### Prerequisites
 
 - [Bun](https://bun.sh) 1.3+
-- Access to Onyx backend API
+- Access to Cortex One backend API
 
 ### Setup
 
@@ -317,7 +317,7 @@ widget/
 │   ├── utils/
 │   │   └── storage.ts           # Session persistence
 │   └── assets/
-│       └── logo.ts              # Default Onyx logo (base64)
+│       └── logo.ts              # Default Cortex One logo (base64)
 ├── dist/                        # Build output
 ├── index.html
 ├── package.json
@@ -336,7 +336,7 @@ widget/
 
 ### Backend Endpoints Used
 
-The widget communicates with these Onyx backend endpoints:
+The widget communicates with these Cortex One backend endpoints:
 
 #### 1. Create Chat Session
 
@@ -416,8 +416,8 @@ The widget uses CSS custom properties (CSS variables) for theming. All styles ar
 **Default Colors (aligned with web/src/app/css/colors.css):**
 
 ```css
---theme-primary-05: #1c1c1c; /* Buttons, accents (onyx-ink-95) */
---theme-primary-06: #000000; /* Hover state (onyx-ink-100) */
+--theme-primary-05: #007aff; /* Buttons, accents (cortex-blue-05) */
+--theme-primary-06: #0062d6; /* Hover state (cortex-blue-06) */
 --background-neutral-00: #ffffff; /* Widget background (grey-00) */
 --background-neutral-03: #e6e6e6; /* Background hover (grey-10) */
 --text-04: #000000bf; /* Text (alpha-grey-100-75) */

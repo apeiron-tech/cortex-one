@@ -146,12 +146,12 @@ def _access_hint(
     if OAUTH_REFRESH_TOKEN_KEY in context.credential_json:
         return (
             f"The OAuth token needs the `{oauth_scope}` scope. Connect Confluence "
-            "again and accept every scope Onyx asks for."
+            "again and accept every scope Cortex One asks for."
         )
     if config.scoped_token:
         return (
             f"The scoped API token needs the `{scoped_token_scope or oauth_scope}` "
-            "scope. Create a token with the read scopes in the Onyx Confluence "
+            "scope. Create a token with the read scopes in the Cortex One Confluence "
             "docs."
         )
     return f"The token acts as its Confluence user. Give that user {user_permission}."
@@ -326,7 +326,7 @@ class _SiteAuthCheck(_ConfluenceCheck):
                 and response.status_code != _RATE_LIMITED_STATUS
             ):
                 raise ConnectorValidationError(
-                    "Onyx cannot get the Atlassian cloud id of "
+                    "Cortex One cannot get the Atlassian cloud id of "
                     f"{config.wiki_base} (`{_TENANT_INFO_PATH}`). Scoped API "
                     "tokens work only with Confluence Cloud; check the site URL."
                 ) from e
@@ -344,7 +344,7 @@ class _SiteAuthCheck(_ConfluenceCheck):
             )
         except (requests.ConnectionError, requests.Timeout) as e:
             raise UnexpectedValidationError(
-                f"Onyx cannot connect to {config.wiki_base}. Check the site URL."
+                f"Cortex One cannot connect to {config.wiki_base}. Check the site URL."
             ) from e
 
 
@@ -472,12 +472,12 @@ def _validate_cql_shape(cql: str) -> None:
     unquoted = _QUOTED_PATTERN.sub('""', cql)
     if _LAST_MODIFIED_PATTERN.search(unquoted):
         raise ConnectorValidationError(
-            "Remove the lastModified filter from the CQL query. Onyx adds its "
+            "Remove the lastModified filter from the CQL query. Cortex One adds its "
             "own lastModified filter on each poll, and the two conflict."
         )
     if _ORDER_BY_PATTERN.search(unquoted):
         raise ConnectorValidationError(
-            "Remove ORDER BY from the CQL query. Onyx adds filters after the "
+            "Remove ORDER BY from the CQL query. Cortex One adds filters after the "
             "query and orders the results itself."
         )
 
@@ -521,7 +521,7 @@ class _CqlQueryCheck(_ConfluenceCheck):
             # Not FAILED: the scope can be empty on purpose (pages come later).
             raise UnexpectedValidationError(
                 "The CQL query matches no page that this credential can read, so "
-                "Onyx cannot verify it. Check the query if pages exist."
+                "Cortex One cannot verify it. Check the query if pages exist."
             )
         other_types = sorted(
             {str(result.get("type")) for result in results} - {_PAGE_TYPE}
@@ -530,7 +530,7 @@ class _CqlQueryCheck(_ConfluenceCheck):
             raise ConnectorValidationError(
                 "The CQL query selects content that is not a page (found: "
                 f"{', '.join(other_types)}). Join `type=page` to the other "
-                "filters with AND. Onyx indexes pages, and reads the comments "
+                "filters with AND. Cortex One indexes pages, and reads the comments "
                 "and attachments of each page itself."
             )
 
@@ -576,7 +576,7 @@ class _ContentReadCheck(_ConfluenceCheck):
             # Not FAILED: the scope can be empty on purpose (pages come later).
             raise UnexpectedValidationError(
                 "The indexing scope has no page that this credential can read, so "
-                f"Onyx cannot verify that page content is readable. {hint}"
+                f"Cortex One cannot verify that page content is readable. {hint}"
             )
         body = page.get("body") or {}
         if not (body.get("storage") or body.get("view")):
@@ -759,7 +759,7 @@ class _UserNamesCheck(_ConfluenceCheck):
             ) from e
         except (requests.ConnectionError, requests.Timeout) as e:
             raise UnexpectedValidationError(
-                f"Onyx cannot connect to {config.wiki_base} to read user details."
+                f"Cortex One cannot connect to {config.wiki_base} to read user details."
             ) from e
         if name is None:
             hint = _access_hint(
@@ -769,7 +769,7 @@ class _UserNamesCheck(_ConfluenceCheck):
                 user_permission="permission to view user profiles",
             )
             raise InsufficientPermissionsError(
-                "Onyx cannot read the name of a page author, so user mentions "
+                "Cortex One cannot read the name of a page author, so user mentions "
                 "index as 'Unknown Confluence User'. The author's account can also "
                 f"be deactivated. {hint}"
             )
@@ -816,7 +816,7 @@ _DC_EMAIL_HINT = (
 _CLOUD_EMAIL_HINT = (
     "Atlassian returns a user's email only when the user's profile shows it to "
     "anyone (Profile and visibility > Contact), or when the organization makes "
-    "emails visible to apps. Users without a visible email get no access in Onyx."
+    "emails visible to apps. Users without a visible email get no access in Cortex One."
 )
 _REMOTE_API_HINT = (
     "Turn on 'Remote API (XML-RPC & SOAP)' in General Configuration > Further "
@@ -839,7 +839,7 @@ def _probe_space_key(
     key = space.get("key") if space is not None else None
     if not key:
         raise UnexpectedValidationError(
-            "No Confluence space is visible, so Onyx cannot read space "
+            "No Confluence space is visible, so Cortex One cannot read space "
             "permissions. confluence_spaces_visible reports why."
         )
     return str(key)
@@ -1012,7 +1012,7 @@ class _RestrictionsBatchReadCheck(_ConfluenceCheck):
             ) from e
         except HTTPError as e:
             raise UnexpectedValidationError(
-                "Onyx cannot read page restrictions, so this check cannot run. "
+                "Cortex One cannot read page restrictions, so this check cannot run. "
                 "confluence_page_restrictions_read reports why."
             ) from e
 
@@ -1184,7 +1184,7 @@ class _PermissionUserEmailsCheck(_ConfluenceCheck):
             permissions = _read_cloud_space_permissions(context, space_key)
         except ConnectorValidationError as e:
             raise UnexpectedValidationError(
-                "Onyx cannot read the space permissions, so this check cannot "
+                "Cortex One cannot read the space permissions, so this check cannot "
                 "run. confluence_space_permissions_read reports why."
             ) from e
         # Permission sync reads only the first user of each permission.
@@ -1197,7 +1197,7 @@ class _PermissionUserEmailsCheck(_ConfluenceCheck):
         if users and not any(user.get("email") for user in users):
             raise InsufficientPermissionsError(
                 f"No user in the permissions of the space `{space_key}` has a "
-                f"visible email, so their access cannot map to Onyx users. "
+                f"visible email, so their access cannot map to Cortex One users. "
                 f"{_CLOUD_EMAIL_HINT}"
             )
 
@@ -1207,7 +1207,7 @@ class _PermissionUserEmailsCheck(_ConfluenceCheck):
             subjects = read_dc_space_subjects(gateway, space_key)
         except (HTTPError, ConnectorValidationError) as e:
             raise UnexpectedValidationError(
-                "Onyx cannot read the space permissions, so this check cannot "
+                "Cortex One cannot read the space permissions, so this check cannot "
                 "run. The space-permission checks report why."
             ) from e
         sample = sorted(subjects.users)[:_SAMPLE_PERMISSION_USERS]
@@ -1218,8 +1218,8 @@ class _PermissionUserEmailsCheck(_ConfluenceCheck):
             for user in sample
         ):
             raise InsufficientPermissionsError(
-                f"Onyx cannot read the email of any user in the permissions of "
-                f"the space `{space_key}`, so their access cannot map to Onyx "
+                f"Cortex One cannot read the email of any user in the permissions of "
+                f"the space `{space_key}`, so their access cannot map to Cortex One "
                 f"users. {_DC_EMAIL_HINT}"
             )
 
@@ -1367,7 +1367,7 @@ class _GroupMembershipCheck(_GroupSyncCheck):
         users = _sample_users(context, config, self._is_cloud)
         if not users:
             raise UnexpectedValidationError(
-                "Confluence listed no users, so Onyx cannot read group "
+                "Confluence listed no users, so Cortex One cannot read group "
                 "memberships. confluence_user_listing reports why."
             )
         try:
@@ -1381,7 +1381,7 @@ class _GroupMembershipCheck(_GroupSyncCheck):
         # The reads succeeded: the sampled users can have no groups, and group
         # sync reads every user.
         raise UnexpectedValidationError(
-            "The first listed users are in no group, so Onyx cannot verify that "
+            "The first listed users are in no group, so Cortex One cannot verify that "
             f"group memberships are readable. {hint}"
         )
 
@@ -1422,7 +1422,7 @@ class _GroupUserEmailsCheck(_GroupSyncCheck):
         if not has_email:
             raise InsufficientPermissionsError(
                 "No listed user has an email, so group members cannot map to "
-                f"Onyx users. {_CLOUD_EMAIL_HINT if self._is_cloud else _DC_EMAIL_HINT}"
+                f"Cortex One users. {_CLOUD_EMAIL_HINT if self._is_cloud else _DC_EMAIL_HINT}"
             )
 
 

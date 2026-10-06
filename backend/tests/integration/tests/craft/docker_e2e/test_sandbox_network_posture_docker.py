@@ -35,7 +35,7 @@ pytestmark = pytest.mark.skipif(
     reason="Docker integration tests require SANDBOX_BACKEND=docker.",
 )
 
-_PROXY_CA_ISSUER_RE = re.compile(r"CN=Onyx Sandbox Proxy CA")
+_PROXY_CA_ISSUER_RE = re.compile(r"CN=Cortex One Sandbox Proxy CA")
 _SANDBOX_BRIDGE_NETWORK = "onyx_craft_sandbox"
 
 

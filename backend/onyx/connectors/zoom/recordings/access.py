@@ -139,7 +139,7 @@ def union_source_emails(sources: list[AccessSource]) -> set[str]:
             reasons.append(f"{description}: {e}")
             continue
         if not found:
-            reasons.append(f"{description}: nobody Onyx can grant access to")
+            reasons.append(f"{description}: nobody Cortex One can grant access to")
         emails |= found
 
     if not emails:
@@ -175,7 +175,7 @@ def zoom_access_resolver(
     if access.num_entries > ExternalAccess.MAX_NUM_ENTRIES:
         logger.warning(
             "Zoom access list for %s occurrence %s has %s entries, over the "
-            "%s Onyx expects",
+            "%s Cortex One expects",
             work.session_id,
             work.occurrence_uuid,
             access.num_entries,

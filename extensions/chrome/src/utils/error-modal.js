@@ -20,7 +20,7 @@ const errorModalHTML = `
         <h2>Configuration Error</h2>
       </div>
       <div class="modal-body">
-        <p class="modal-description">The Onyx configuration needs to be updated. Please check your settings or contact your Onyx administrator.</p>
+        <p class="modal-description">The Cortex One configuration needs to be updated. Please check your settings or contact your Cortex One administrator.</p>
         <div class="url-display">
           <span class="url-label">Attempted to load:</span>
           <span id="attempted-url" class="url-value"></span>
@@ -242,11 +242,11 @@ const authModalHTML = `
         <h2>Authentication Required</h2>
       </div>
       <div class="modal-body">
-        <p class="modal-description">You need to log in to access Onyx. Click the button below to authenticate.</p>
+        <p class="modal-description">You need to log in to access Cortex One. Click the button below to authenticate.</p>
       </div>
       <div class="modal-footer">
         <div class="button-container">
-          <button id="open-auth" class="button primary">Log In to Onyx</button>
+          <button id="open-auth" class="button primary">Log In to Cortex One</button>
         </div>
       </div>
     </div>

@@ -174,8 +174,8 @@ export {
 
 /* Loader */
 export {
-  OnyxLoader,
-  type OnyxLoaderProps,
+  CortexLoader,
+  type CortexLoaderProps,
   type LoaderColor,
 } from "@opal/components/loader/components";
 

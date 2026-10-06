@@ -166,7 +166,7 @@ def resolve_recording_access(
     # silently pick which registered viewers lose access.
     if access.num_entries > ExternalAccess.MAX_NUM_ENTRIES:
         logger.warning(
-            "Zoom recording %s grants %s people, over the %s Onyx expects",
+            "Zoom recording %s grants %s people, over the %s Cortex One expects",
             recording.uuid,
             access.num_entries,
             ExternalAccess.MAX_NUM_ENTRIES,

@@ -19,6 +19,6 @@ KG_DEFAULT_MAX_PARENT_RECURSION_DEPTH: int = int(
 
 
 KG_BETA_ASSISTANT_DESCRIPTION = (
-    "The KG Beta assistant uses the Onyx Knowledge Graph (beta) structure \
+    "The KG Beta assistant uses the Cortex One Knowledge Graph (beta) structure \
 to answer questions"
 )

@@ -7,7 +7,7 @@ import Text from "@/refresh-components/texts/Text";
 import Truncated from "@/refresh-components/texts/Truncated";
 import { ensureHrefProtocol } from "@/lib/utils";
 import { cn } from "@opal/utils";
-import { SvgOnyxLogo } from "@opal/logos";
+import { SvgCortexLogo } from "@opal/logos";
 import MinimalMarkdown from "@/components/chat/MinimalMarkdown";
 
 const previewMarkdownComponents = {
@@ -80,7 +80,7 @@ function PreviewLogo({
       className={cn("shrink-0 rounded-full", className)}
     />
   ) : (
-    <SvgOnyxLogo size={size} className={cn("shrink-0", className)} />
+    <SvgCortexLogo size={size} className={cn("shrink-0", className)} />
   );
 }
 
@@ -207,7 +207,7 @@ function PreviewStart({
             {(logoDisplayStyle === "logo_and_name" ||
               logoDisplayStyle === "name_only") && (
               <Truncated mainUiAction text04 nowrap>
-                {applicationDisplayName || "Onyx"}
+                {applicationDisplayName || "Cortex One"}
               </Truncated>
             )}
           </div>

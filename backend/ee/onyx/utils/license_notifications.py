@@ -40,20 +40,20 @@ def _build_trial_copy(
     is a subscription starting rather than access being lost."""
     if stage == ExpiryWarningStage.GRACE:
         return (
-            f"Onyx trial ended. {grace_days_remaining} grace days remaining",
+            f"Cortex One trial ended. {grace_days_remaining} grace days remaining",
             f"Your trial ended on {expires_str} and billing has not started. "
             f"You have {grace_days_remaining} day(s) of access remaining. Check "
-            "your payment method in Plans & Billing to keep Onyx running.",
-            f"Onyx trial ended. {grace_days_remaining} grace days remaining",
+            "your payment method in Plans & Billing to keep Cortex One running.",
+            f"Cortex One trial ended. {grace_days_remaining} grace days remaining",
         )
     when = (
         "within 24 hours" if stage == ExpiryWarningStage.T_1D else f"on {expires_str}"
     )
     return (
-        f"Onyx trial ends {expires_str}",
+        f"Cortex One trial ends {expires_str}",
         f"Your trial ends {when} and billing begins then. Visit Plans & "
         "Billing to change your plan or cancel.",
-        f"Your Onyx trial ends {expires_str}",
+        f"Your Cortex One trial ends {expires_str}",
     )
 
 
@@ -70,50 +70,50 @@ def _build_copy(
     expires_str = expires_at.strftime("%Y-%m-%d")
     if renewal_error and is_trial:
         return (
-            "Onyx could not start your subscription",
+            "Cortex One could not start your subscription",
             f"Your trial ended on {expires_str} and billing could not start: "
             f"{renewal_error} You have {grace_days_remaining} day(s) of grace "
             "access remaining.",
-            "Action required: Onyx could not start your subscription",
+            "Action required: Cortex One could not start your subscription",
         )
     if renewal_error:
         return (
-            "Onyx could not renew your license",
+            "Cortex One could not renew your license",
             f"Your license expired on {expires_str} and the automatic renewal "
             f"failed: {renewal_error} You have {grace_days_remaining} day(s) of "
             "grace access remaining.",
-            "Action required: Onyx license renewal failed",
+            "Action required: Cortex One license renewal failed",
         )
     if is_trial:
         return _build_trial_copy(stage, expires_str, grace_days_remaining)
     if stage == ExpiryWarningStage.T_30D:
         return (
-            f"Onyx license expires {expires_str}",
+            f"Cortex One license expires {expires_str}",
             "Your license will expire in approximately 30 days. Contact your "
-            "Onyx representative to renew.",
-            "Action required: Onyx license expires in ~30 days",
+            "Cortex One representative to renew.",
+            "Action required: Cortex One license expires in ~30 days",
         )
     if stage == ExpiryWarningStage.T_14D:
         return (
-            f"Onyx license expires {expires_str}",
+            f"Cortex One license expires {expires_str}",
             "Your license will expire in approximately 2 weeks. Renewal must "
             "be completed soon to avoid service interruption.",
-            "Action required: Onyx license expires in ~2 weeks",
+            "Action required: Cortex One license expires in ~2 weeks",
         )
     if stage == ExpiryWarningStage.T_1D:
         return (
-            f"Onyx license expires tomorrow ({expires_str})",
+            f"Cortex One license expires tomorrow ({expires_str})",
             "Your license expires within 24 hours. Renew immediately to avoid "
             "service interruption.",
-            "URGENT: Onyx license expires within 24 hours",
+            "URGENT: Cortex One license expires within 24 hours",
         )
     if stage == ExpiryWarningStage.GRACE:
         return (
-            f"Onyx license expired. {grace_days_remaining} grace days remaining",
+            f"Cortex One license expired. {grace_days_remaining} grace days remaining",
             f"Your license expired on {expires_str}. You have "
             f"{grace_days_remaining} day(s) of grace access remaining before "
             "the instance is gated. Renew now.",
-            f"Onyx license expired. {grace_days_remaining} grace days remaining",
+            f"Cortex One license expired. {grace_days_remaining} grace days remaining",
         )
     raise ValueError(f"Unsupported stage for notification copy: {stage}")
 

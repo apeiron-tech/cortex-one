@@ -28,7 +28,7 @@ import {
   let iframeLoadTimeout;
   let iframeLoaded = false;
 
-  // Both iframes load the configured Onyx domain. Messages are only accepted
+  // Both iframes load the configured Cortex One domain. Messages are only accepted
   // from, and sent to, that origin. Throws if src is not a valid URL.
   function getOnyxOrigin(iframe) {
     return new URL(iframe.src).origin;
@@ -207,7 +207,7 @@ import {
     }
   });
 
-  // Only accept messages from one of our own Onyx iframes, and only when
+  // Only accept messages from one of our own Cortex One iframes, and only when
   // the sender origin matches that iframe's src (fails closed).
   function isTrustedIframeMessage(event) {
     const frame = [mainIframe, preloadedIframe].find(

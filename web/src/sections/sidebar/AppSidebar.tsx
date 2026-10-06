@@ -73,7 +73,7 @@ import {
   SvgEditBig,
   SvgFolderPlus,
   SvgMoreHorizontal,
-  SvgOnyxOctagon,
+  SvgCortexRing,
   SvgSearchMenu,
   SvgSettings,
 } from "@opal/icons";
@@ -506,7 +506,7 @@ export default function AppSidebar() {
       <SidebarTab
         icon={
           folded || visibleAgents.length === 0
-            ? SvgOnyxOctagon
+            ? SvgCortexRing
             : SvgMoreHorizontal
         }
         href="/app/agents"

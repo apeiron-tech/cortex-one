@@ -153,7 +153,7 @@ def _authorize_gateway_request(http_request: Request, user: User) -> LLMFlow:
     if flow is None:
         raise OnyxError(
             OnyxErrorCode.INSUFFICIENT_PERMISSIONS,
-            "This credential is not authorized to use the Onyx LLM gateway.",
+            "This credential is not authorized to use the Cortex One LLM gateway.",
         )
     return flow
 
@@ -165,7 +165,7 @@ def resolve_gateway_model(
 ) -> tuple[LLMProviderView, ModelConfigurationView]:
     not_found_error = OnyxError(
         OnyxErrorCode.NOT_FOUND,
-        f"Model {requested_model!r} is not available through the Onyx gateway.",
+        f"Model {requested_model!r} is not available through the Cortex One gateway.",
     )
 
     provider_id_text, separator, model_name = requested_model.partition("/")
@@ -740,7 +740,7 @@ def handle_responses_request(
     if request.previous_response_id is not None:
         raise OnyxError(
             OnyxErrorCode.NOT_IMPLEMENTED,
-            "The Onyx gateway does not store responses; send the full "
+            "The Cortex One gateway does not store responses; send the full "
             "conversation in `input` instead of `previous_response_id`.",
         )
     llm = llm_from_provider(
@@ -896,7 +896,7 @@ def _anthropic_messages_to_raw_messages(
                 raise OnyxError(
                     OnyxErrorCode.INVALID_INPUT,
                     "Multimodal tool_result content is not supported by the "
-                    "Onyx gateway.",
+                    "Cortex One gateway.",
                 )
 
     adapter = LiteLLMAnthropicMessagesAdapter()
@@ -937,7 +937,7 @@ def _anthropic_tools(
             identifier = name or tool.get("type") or "<unknown>"
             raise OnyxError(
                 OnyxErrorCode.INVALID_INPUT,
-                f"Tool {identifier!r} is not supported by the Onyx gateway; "
+                f"Tool {identifier!r} is not supported by the Cortex One gateway; "
                 "only client tools with an input_schema are accepted.",
             )
         function: dict[str, Any] = {"name": name, "parameters": input_schema}

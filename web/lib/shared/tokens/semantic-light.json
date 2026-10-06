@@ -17,11 +17,11 @@
       "type": "color"
     },
     "text-03": {
-      "value": "{alpha-grey-100-55}",
+      "value": "{alpha-grey-100-65}",
       "type": "color"
     },
     "text-02": {
-      "value": "{alpha-grey-100-45}",
+      "value": "{alpha-grey-100-55}",
       "type": "color"
     },
     "text-01": {
@@ -165,11 +165,11 @@
       "type": "color"
     },
     "border-01": {
-      "value": "{grey-10}",
+      "value": "{alpha-grey-100-10}",
       "type": "color"
     },
     "border-02": {
-      "value": "{grey-20}",
+      "value": "{alpha-grey-100-15}",
       "type": "color"
     },
     "border-03": {
@@ -205,15 +205,15 @@
       "type": "color"
     },
     "theme-primary-06": {
-      "value": "{onyx-ink-100}",
+      "value": "{cortex-blue-light-06}",
       "type": "color"
     },
     "theme-primary-05": {
-      "value": "{onyx-ink-95}",
+      "value": "{cortex-blue-light-05}",
       "type": "color"
     },
     "theme-primary-04": {
-      "value": "{onyx-ink-90}",
+      "value": "{cortex-blue-light-04}",
       "type": "color"
     },
     "theme-gradient-05": {
@@ -577,7 +577,7 @@
       "type": "color"
     },
     "mask-03": {
-      "value": "{alpha-grey-100-40}",
+      "value": "{alpha-grey-100-20}",
       "type": "color"
     },
     "frost-overlay": {

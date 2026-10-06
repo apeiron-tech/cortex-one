@@ -6,8 +6,8 @@ import { AgentImage } from "@/components/avatars/AgentImage";
 import { Icon } from "@/components/ui/icon";
 import { Text } from "@/components/ui/text";
 import { DEFAULT_AGENT_ID, MinimalAgent } from "@/chat/agents";
-import SvgOnyxLogo from "@/icons/onyx-logo";
-import SvgOnyxOctagon from "@/icons/onyx-octagon";
+import SvgCortexLogo from "@/icons/cortex-logo";
+import SvgCortexRing from "@/icons/cortex-ring";
 import SvgTwoLineSmall from "@/icons/two-line-small";
 
 export const DEFAULT_AVATAR_SIZE_PX = 18;
@@ -25,7 +25,7 @@ export function AgentAvatar({
 }: AgentAvatarProps) {
   if (agent.id === DEFAULT_AGENT_ID) {
     return (
-      <Icon as={SvgOnyxLogo} size={size} className="text-theme-primary-05" />
+      <Icon as={SvgCortexLogo} size={size} className="text-theme-primary-05" />
     );
   }
 
@@ -82,7 +82,7 @@ function OctagonWrapper({
         style={StyleSheet.absoluteFill}
         className="items-center justify-center"
       >
-        <Icon as={SvgOnyxOctagon} size={size} className="text-text-04" />
+        <Icon as={SvgCortexRing} size={size} className="text-text-04" />
       </View>
       <View
         style={StyleSheet.absoluteFill}

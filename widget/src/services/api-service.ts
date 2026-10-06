@@ -1,5 +1,5 @@
 /**
- * API Service - Handles all communication with Onyx backend
+ * API Service - Handles all communication with Cortex One backend
  */
 
 import {
@@ -229,7 +229,7 @@ export class ApiService {
   private async getHeaders(): Promise<Record<string, string>> {
     const token = await this.resolveToken();
     if (!token) {
-      throw new Error("Onyx credential resolved to an empty value");
+      throw new Error("Cortex One credential resolved to an empty value");
     }
 
     return {

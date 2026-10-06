@@ -8,13 +8,6 @@ export interface CardSectionProps {
 // Used for all admin page sections
 export default function CardSection({ children, className }: CardSectionProps) {
   return (
-    <div
-      className={cn(
-        "p-6 bg-background-neutral-00 rounded-16 border",
-        className
-      )}
-    >
-      {children}
-    </div>
+    <div className={cn("p-6 glass-card rounded-16", className)}>{children}</div>
   );
 }

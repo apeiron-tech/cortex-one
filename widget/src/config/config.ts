@@ -3,7 +3,7 @@ import { TokenProvider, WidgetConfig } from "@/types/widget-types";
 const SHARED_CREDENTIAL_IDENTITY = "shared-credential";
 
 const MISSING_CREDENTIAL_MESSAGE =
-  "No Onyx credential available. Set the `api-key` attribute, or assign a " +
+  "No Cortex One credential available. Set the `api-key` attribute, or assign a " +
   "`tokenProvider` function on the <onyx-chat-widget> element.";
 
 /**

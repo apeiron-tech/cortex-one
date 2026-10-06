@@ -146,10 +146,10 @@ def is_craft_available_for_deployment(user: User) -> bool:
     )
 
     if is_enabled:
-        logger.debug("Onyx Craft enabled via PostHog feature flag")
+        logger.debug("Cortex Craft enabled via PostHog feature flag")
         return True
     else:
-        logger.debug("Onyx Craft disabled via PostHog feature flag")
+        logger.debug("Cortex Craft disabled via PostHog feature flag")
         return False
 
 
@@ -222,8 +222,8 @@ def ensure_build_mode_intro_notification(user: User, db_session: Session) -> Non
         user_id=user.id,
         notif_type=NotificationType.FEATURE_ANNOUNCEMENT,
         db_session=db_session,
-        title="Introducing Onyx Craft",
-        description="Unleash Onyx to create dashboards, slides, documents, and more with your connected data.",
+        title="Introducing Cortex Craft",
+        description="Unleash Cortex One to create dashboards, slides, documents, and more with your connected data.",
         additional_data={"feature": BUILD_MODE_FEATURE_ID},
         refresh_existing=False,
     )
