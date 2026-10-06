@@ -200,8 +200,16 @@ export {
 
 /* Table */
 export { Table } from "@opal/components/table/components";
-export { createTableColumns } from "@opal/components/table/columns";
 export type { DataTableProps } from "@opal/components/table/components";
+export type {
+  TableColumn,
+  TableQualifierColumn,
+  TableFieldColumn,
+  TableValueColumn,
+  TableDisplayColumn,
+  TableActionsColumn,
+  TableCellValue,
+} from "@opal/components/table/types";
 
 /* ShadowDiv */
 export {
@@ -284,6 +292,9 @@ export {
   type DropdownSearch,
   type DropdownView,
   type DropdownViews,
+  type DropdownWidth,
+  type DropdownAlign,
+  type DropdownSide,
 } from "@opal/components/dropdown/types";
 export { useDropdownViews } from "@opal/components/dropdown/context";
 

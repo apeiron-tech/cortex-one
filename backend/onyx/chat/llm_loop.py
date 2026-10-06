@@ -12,15 +12,17 @@ from onyx.chat.chat_utils import (
 )
 from onyx.chat.citation_processor import (
     CitationMapping,
-    CitationMode,
     DynamicCitationProcessor,
 )
-from onyx.chat.citation_utils import update_citation_processor_from_tool_response
+from onyx.chat.citation_utils import (
+    build_context_file_citation_mapping,
+    update_citation_processor_from_tool_response,
+)
 from onyx.chat.emitter import Emitter
 from onyx.chat.llm_step import extract_tool_calls_from_response_text, run_llm_step
 from onyx.chat.models import (
     ChatMessageSimple,
-    ContextFileMetadata,
+    CitationMode,
     ExtractedContextFiles,
     FileToolMetadata,
     LlmStepResult,
@@ -32,10 +34,9 @@ from onyx.chat.prompt_utils import (
     get_default_base_system_prompt,
     process_prompt_template,
 )
-from onyx.chat.token_budget import resolve_chat_token_budget
 from onyx.configs.app_configs import INTEGRATION_TESTS_MODE
 from onyx.configs.chat_configs import MAX_LLM_CYCLES
-from onyx.configs.constants import DocumentSource, MessageType
+from onyx.configs.constants import MessageType
 from onyx.context.search.models import SearchDoc, SearchDocsResponse
 from onyx.db.engine.sql_engine import get_session_with_current_tenant
 from onyx.db.memory import UserMemoryContext, add_memory, update_memory_at_index
@@ -45,7 +46,9 @@ from onyx.llm.constants import LlmProviderNames
 from onyx.llm.exceptions import ClassifiedLLMError
 from onyx.llm.interfaces import LLM, LLMUserIdentity
 from onyx.llm.model_capabilities import is_true_openai_model
+from onyx.llm.model_request import serialize_tools
 from onyx.llm.models import ReasoningEffort, ToolChoiceOptions
+from onyx.llm.token_budget import resolve_token_budget
 from onyx.llm.tool_parsing import looks_like_xml_tool_call_payload
 from onyx.llm.utils import model_supports_image_input
 from onyx.prompts.chat_prompts import (
@@ -60,8 +63,8 @@ from onyx.server.query_and_chat.streaming_models import (
     Packet,
     ToolCallDebug,
 )
-from onyx.tools.built_in_tools import CITEABLE_TOOLS_NAMES, STOPPING_TOOLS_NAMES
-from onyx.tools.constants import FILE_READER_TOOL_NAME
+from onyx.tools.built_in_tools import STOPPING_TOOLS_NAMES
+from onyx.tools.constants import CITEABLE_TOOLS_NAMES, FILE_READER_TOOL_NAME
 from onyx.tools.interface import Tool
 from onyx.tools.models import (
     ChatFile,
@@ -309,43 +312,6 @@ def _try_fallback_tool_extraction(
 # Cycle 6: No more tools available, forced to answer
 # Override via the MAX_LLM_CYCLES env var when running with tool-heavy MCPs
 # that legitimately need more turns. Imported from chat_configs.
-
-
-def _build_context_file_citation_mapping(
-    file_metadata: list[ContextFileMetadata],
-    starting_citation_num: int = 1,
-) -> CitationMapping:
-    """Build citation mapping for context files.
-
-    Converts context file metadata into SearchDoc objects that can be cited.
-    Citation numbers start from the provided starting number.
-
-    Args:
-        file_metadata: List of context file metadata
-        starting_citation_num: Starting citation number (default: 1)
-
-    Returns:
-        Dictionary mapping citation numbers to SearchDoc objects
-    """
-    citation_mapping: CitationMapping = {}
-
-    for idx, file_meta in enumerate(file_metadata, start=starting_citation_num):
-        search_doc = SearchDoc(
-            document_id=file_meta.file_id,
-            chunk_ind=0,
-            semantic_identifier=file_meta.filename,
-            link=None,
-            blurb=file_meta.file_content,
-            source_type=DocumentSource.FILE,
-            boost=1,
-            hidden=False,
-            metadata={},
-            score=0.0,
-            match_highlights=[file_meta.file_content],
-        )
-        citation_mapping[idx] = search_doc
-
-    return citation_mapping
 
 
 def _build_project_message(
@@ -860,7 +826,7 @@ def run_llm_loop(
         # Add project file citation mappings if project files are present
         project_citation_mapping: CitationMapping = {}
         if context_files.file_metadata:
-            project_citation_mapping = _build_context_file_citation_mapping(
+            project_citation_mapping = build_context_file_citation_mapping(
                 context_files.file_metadata
             )
             citation_processor.update_citation_mapping(project_citation_mapping)
@@ -873,7 +839,7 @@ def run_llm_loop(
             finish_reason=None,
         )
 
-        token_budget = resolve_chat_token_budget(llm)
+        token_budget = resolve_token_budget(llm)
         available_tokens = token_budget.input_tokens
         # When the model takes no image input, history images are replayed as
         # short text markers (translate_history_to_llm_format) — budget them
@@ -1111,7 +1077,9 @@ def run_llm_loop(
 
             # This calls the LLM, yields packets (reasoning, answers, etc.) and returns the result
             # It also pre-processes the tool calls in preparation for running them
-            tool_defs = [tool.tool_definition() for tool in final_tools]
+            tool_defs = serialize_tools(
+                [tool.tool_definition() for tool in final_tools]
+            )
 
             # Calculate total processing time from loop start until now
             # This measures how long the user waits before the answer starts streaming
@@ -1368,7 +1336,9 @@ def run_llm_loop(
                     reasoning_tokens=llm_step_result.reasoning,  # All tool calls from this loop share the same reasoning
                     tool_call_arguments=tool_call.tool_args,
                     tool_call_response=saved_response,
-                    search_docs=displayed_docs or search_docs,
+                    search_docs=(
+                        displayed_docs if displayed_docs is not None else search_docs
+                    ),
                     generated_images=generated_images,
                     generated_files=generated_files,
                     generated_file_ids=generated_file_ids,

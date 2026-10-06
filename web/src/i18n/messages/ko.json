@@ -1963,25 +1963,6 @@
       }
     },
     "connector": {
-      "accessType": {
-        "autoSyncOption": {
-          "description": "소스에서 권한을 자동으로 동기화합니다. 검색을 수행하는 사용자가 소스에서 해당 문서에 액세스할 권한이 있는 경우에만 {appName}에서 문서를 검색할 수 있습니다.",
-          "disabledReason": "현재 자격 증명의 인증 방식은 권한 자동 동기화를 지원하지 않습니다. 지원되는 인증 방식으로 변경해 주세요.",
-          "name": "권한 자동 동기화"
-        },
-        "heading": {
-          "description": "이 커넥터가 색인한 문서에 대한 액세스 권한을 관리합니다.",
-          "title": "문서 액세스"
-        },
-        "privateOption": {
-          "description": "(사용자 그룹 페이지를 통해) 이 커넥터에 대한 액세스 권한을 명시적으로 부여받은 사용자만 이 커넥터가 가져온 문서에 액세스할 수 있습니다",
-          "name": "비공개"
-        },
-        "publicOption": {
-          "description": "{appName} 계정이 있는 모든 사용자가 이 커넥터가 가져온 문서에 액세스할 수 있습니다",
-          "name": "공개"
-        }
-      },
       "advancedConfig": {
         "duration": {
           "days": "{count, plural, one {#일} other {#일}}",
@@ -2157,6 +2138,7 @@
           "description": "모든 사용자가 소스에서 동기화된 접근 권한을 유지합니다.",
           "title": "그룹을 추가하기 전까지 제한 없음"
         },
+        "loadError": "그룹을 불러오지 못했습니다. 페이지를 새로고침한 후 다시 시도하세요.",
         "memberCount": "{count, plural, other {멤버 #명}}",
         "picker": {
           "placeholder": "이 커넥터에 대한 접근을 제한할 그룹 추가"
@@ -2164,26 +2146,12 @@
         "remove": {
           "tooltip": "{name} 제거"
         },
+        "table": {
+          "group": "그룹"
+        },
         "toggle": {
           "description": "선택한 그룹의 멤버로 접근을 제한합니다. 동기화된 권한은 계속 적용됩니다.",
           "title": "그룹으로 접근 제한"
-        }
-      },
-      "groupSelector": {
-        "assignGroupAccess": {
-          "title": "이 커넥터에 대한 그룹 액세스 할당"
-        },
-        "assignToGroup": {
-          "title": "이 커넥터를 관리할 수 있는 그룹"
-        },
-        "scopedManagerGroups": {
-          "description": "이 커넥터에 대한 액세스 권한을 부여하려면 관리 중인 그룹을 하나 이상 선택하세요"
-        },
-        "syncGroups": {
-          "description": "아래 그룹은 이 커넥터를 관리할 수 있는 사용자를 제어합니다. 문서에 대한 액세스는 소스 자체의 권한에서 상속됩니다."
-        },
-        "visibleToGroups": {
-          "description": "이 커넥터는 아래에서 선택한 그룹에 표시되고 액세스할 수 있습니다"
         }
       },
       "indexAttemptsTable": {
@@ -2670,10 +2638,6 @@
           "toast": "알 수 없는 오류가 발생했습니다"
         }
       },
-      "connectorName": {
-        "label": "커넥터 이름",
-        "subtext": "커넥터를 설명하는 이름입니다."
-      },
       "credentialRequired": {
         "tooltip": "먼저 자격 증명을 선택하세요."
       },
@@ -2978,6 +2942,57 @@
           "hours": "시간",
           "minutes": "분"
         }
+      },
+      "settings": {
+        "description": "커넥터 정보 및 액세스.",
+        "displayName": {
+          "title": "커넥터 표시 이름"
+        },
+        "documentAccess": {
+          "description": "이 커넥터가 색인한 문서에 액세스할 수 있는 사용자를 관리합니다.",
+          "everyone": {
+            "description": "이 커넥터가 색인한 문서는 조직의 모든 사용자에게 공개됩니다.",
+            "title": "조직의 모든 사용자"
+          },
+          "specificGroups": {
+            "description": "이 커넥터의 문서에 액세스할 수 있는 그룹을 지정합니다.",
+            "required": "그룹을 하나 이상 선택하세요.",
+            "title": "특정 그룹"
+          },
+          "sync": {
+            "description": "{appName}이(가) 소스와 권한을 동기화합니다. 사용자는 소스에서 볼 수 있는 항목만 검색할 수 있습니다.",
+            "disabledReason": "현재 자격 증명의 인증 방식은 권한 자동 동기화를 지원하지 않습니다. 지원되는 인증 방식으로 변경해 주세요.",
+            "title": "{source}와(과) 동기화"
+          },
+          "title": "문서 액세스"
+        },
+        "manageAccess": {
+          "admins": {
+            "alwaysShared": "항상 공유됨",
+            "title": "관리자"
+          },
+          "description": "커넥터를 운영(색인 예약 및 모니터링)하거나 커넥터 구성을 편집할 수 있는 사용자를 관리합니다.",
+          "note": "“커넥터 관리” 권한(그룹 관리자 역할 또는 그룹 권한)이 있는 사용자만 커넥터를 운영하거나 편집할 수 있습니다.",
+          "placeholder": "그룹을 추가하여 이 커넥터 공유",
+          "role": {
+            "editor": {
+              "description": "구성을 업데이트/삭제합니다.",
+              "label": "편집자"
+            },
+            "menu": {
+              "ariaLabel": "{name}의 역할"
+            },
+            "operator": {
+              "description": "인덱싱을 예약/모니터링합니다.",
+              "label": "운영자"
+            },
+            "removeAccess": {
+              "label": "액세스 제거"
+            }
+          },
+          "title": "커넥터 관리 액세스"
+        },
+        "title": "커넥터 설정"
       }
     },
     "costOverrides": {
@@ -8444,6 +8459,9 @@
         "makeAdmin": {
           "label": "관리자로 지정"
         },
+        "menuButton": {
+          "ariaLabel": "사용자 작업"
+        },
         "removeAdmin": {
           "label": "관리자 권한 해제"
         },
@@ -8799,6 +8817,31 @@
           "label": "API 기본 URL",
           "description": "Firecrawl API 기본 URL입니다."
         }
+      }
+    },
+    "llmGateway": {
+      "header": {
+        "title": "LLM 게이트웨이",
+        "description": "외부 도구에서 워크스페이스 언어 모델에 대한 직접 API 액세스를 제어합니다."
+      },
+      "access": {
+        "title": "모델 직접 API 액세스",
+        "description": "워크스페이스의 언어 모델을 Claude Code나 Cursor 같은 외부 도구에서 범위 지정 액세스 토큰으로 호출할 수 있게 합니다. 호출은 구성된 제공업체에 청구됩니다.",
+        "toggle": {
+          "title": "LLM 게이트웨이 활성화",
+          "description": "끄면 모든 게이트웨이 엔드포인트가 요청을 거부하고, 기존 토큰이 작동을 멈추며, 토큰 선택기에서 게이트웨이 범위가 숨겨집니다. Craft 샌드박스 트래픽은 Craft 설정에서 별도로 제어됩니다."
+        }
+      },
+      "businessPlanTag": {
+        "label": "Business 플랜"
+      },
+      "tierTooltip": "LLM 게이트웨이는 Business 또는 Enterprise 플랜이 필요합니다.",
+      "scopeNote": {
+        "title": "각 사용자는 설정 → LLM 게이트웨이에서 자체 토큰과 연결 정보를 구성합니다."
+      },
+      "toasts": {
+        "settingsUpdated": "설정을 업데이트했습니다",
+        "settingsUpdateFailed": "설정을 업데이트하지 못했습니다"
       }
     }
   },
@@ -11234,6 +11277,9 @@
         "expand": {
           "ariaLabel": "프로젝트 펼치기"
         },
+        "options": {
+          "label": "프로젝트 옵션"
+        },
         "rename": {
           "label": "프로젝트 이름 바꾸기"
         }
@@ -11873,7 +11919,6 @@
         }
       },
       "associatedSkills": {
-        "associateAriaLabel": "{name} 연결",
         "associateButton": "기존 스킬 연결",
         "create": {
           "github": {
@@ -12584,6 +12629,9 @@
       },
       "newSession": {
         "label": "크래프트 시작"
+      },
+      "options": {
+        "label": "세션 옵션"
       },
       "rename": {
         "label": "이름 바꾸기"
@@ -13582,6 +13630,10 @@
       "title": "위험 구역"
     },
     "gateway": {
+      "adminDisabled": {
+        "description": "관리자가 이 워크스페이스의 LLM 게이트웨이를 껐습니다. 다시 켜려면 관리자에게 문의하세요.",
+        "title": "LLM 게이트웨이가 꺼져 있습니다"
+      },
       "accessToken": {
         "button": "새 token",
         "description": "애플리케이션을 연결하기 전에 범위를 지정한 token을 생성하세요.",
@@ -13893,6 +13945,9 @@
         "languageModels": {
           "label": "언어 모델"
         },
+        "llmGateway": {
+          "label": "LLM 게이트웨이"
+        },
         "mcpActions": {
           "label": "MCP 액션"
         },
@@ -14041,6 +14096,9 @@
       },
       "moveToProject": {
         "label": "프로젝트로 이동"
+      },
+      "options": {
+        "label": "채팅 옵션"
       },
       "projectSearchInput": {
         "placeholder": "프로젝트 검색"

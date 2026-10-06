@@ -4,8 +4,8 @@
  *
  * The page renders every connector's configuration form through the shared
  * `RenderField`/`TextFormField` machinery, so text fields are addressable by
- * their config `name` (exposed as `data-testid`) and select fields by their
- * native `<select name=...>` element.
+ * their config `name` (exposed as `data-testid`) and select fields by the
+ * `InputSingleSelect` whose input carries that name as its id.
  */
 
 import { expect, type Locator, type Page } from "@playwright/test";
@@ -17,19 +17,27 @@ export class ConnectorSetupPage {
   readonly pageTitle: Locator;
   readonly connectorNameInput: Locator;
   readonly createConnectorButton: Locator;
+  /** The "Document Access" picker: everyone, specific groups, or auto sync. */
+  readonly accessTypeSelect: Locator;
+  /** The group picker that follows a "Specific Groups" pick. */
+  readonly groupAccessPrompt: Locator;
 
   constructor(page: Page, source: string) {
     this.page = page;
     this.source = source;
     this.pageTitle = page.locator('[aria-label="admin-page-title"]');
-    // Scoped: a credential form on the same page carries a name field too.
-    this.connectorNameInput = page
-      .getByTestId("connector-form")
-      .getByTestId("name");
+    // Its own test id: a credential form on the same page has a name field too.
+    this.connectorNameInput = page.getByTestId("connector-name");
     this.createConnectorButton = page.getByRole("button", {
       name: "Connect",
       exact: true,
     });
+    this.accessTypeSelect = page.getByRole("combobox", {
+      name: "Document Access",
+    });
+    this.groupAccessPrompt = page.getByPlaceholder(
+      "Add groups to restrict access to this connector"
+    );
   }
 
   /** A single-line text field from the connector config, by its config name. */
@@ -37,9 +45,30 @@ export class ConnectorSetupPage {
     return this.page.getByTestId(fieldName);
   }
 
-  /** A select field from the connector config, by its config name. */
+  /** A select field's combobox from the connector config, by its config name. */
   selectField(fieldName: string): Locator {
-    return this.page.locator(`select[name="${fieldName}"]`);
+    return this.page.locator(`#${fieldName}`);
+  }
+
+  /** Open a select field and pick the option with this title. */
+  async pickOption(fieldName: string, title: string): Promise<void> {
+    await this.pick(this.selectField(fieldName), title);
+  }
+
+  /** Open the access type picker and pick an option by its title. */
+  async pickAccessType(
+    title: "Everyone in Your Organization" | "Specific Groups"
+  ): Promise<void> {
+    await this.pick(this.accessTypeSelect, title);
+  }
+
+  private async pick(select: Locator, title: string): Promise<void> {
+    await select.click();
+    // An option's accessible name is its title followed by its description.
+    const startsWithTitle = new RegExp(
+      `^${title.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`
+    );
+    await this.page.getByRole("option", { name: startsWithTitle }).click();
   }
 
   /** The row for a credential in the credential section, by its name. */

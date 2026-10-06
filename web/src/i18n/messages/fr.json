@@ -1963,25 +1963,6 @@
       }
     },
     "connector": {
-      "accessType": {
-        "autoSyncOption": {
-          "description": "Nous synchroniserons automatiquement les permissions depuis la source. Un document ne sera consultable dans {appName} que si l'utilisateur effectuant la recherche est autorisé à y accéder dans la source.",
-          "disabledReason": "La méthode d'authentification de l'identifiant actuel ne prend pas en charge la synchronisation automatique des permissions. Veuillez passer à une méthode d'authentification prise en charge.",
-          "name": "Synchronisation automatique des permissions"
-        },
-        "heading": {
-          "description": "Contrôlez qui a accès aux documents indexés par ce connecteur.",
-          "title": "Accès aux documents"
-        },
-        "privateOption": {
-          "description": "Seuls les utilisateurs ayant reçu un accès explicite à ce connecteur (via la page Groupes d'utilisateurs) peuvent accéder aux documents importés par ce connecteur",
-          "name": "Privé"
-        },
-        "publicOption": {
-          "description": "Toute personne disposant d'un compte {appName} peut accéder aux documents importés par ce connecteur",
-          "name": "Public"
-        }
-      },
       "advancedConfig": {
         "duration": {
           "days": "{count, plural, one {# jour} other {# jours}}",
@@ -2157,6 +2138,7 @@
           "description": "Tout le monde conserve l'accès synchronisé depuis la source.",
           "title": "Aucune restriction tant qu'aucun groupe n'est ajouté"
         },
+        "loadError": "Impossible de charger les groupes. Rechargez la page pour réessayer.",
         "memberCount": "{count, plural, one {# membre} other {# membres}}",
         "picker": {
           "placeholder": "Ajouter des groupes pour restreindre l'accès à ce connecteur"
@@ -2164,26 +2146,12 @@
         "remove": {
           "tooltip": "Retirer {name}"
         },
+        "table": {
+          "group": "Groupe"
+        },
         "toggle": {
           "description": "Limite l'accès aux membres des groupes sélectionnés. Les permissions synchronisées s'appliquent toujours.",
           "title": "Restreindre l'accès à des groupes"
-        }
-      },
-      "groupSelector": {
-        "assignGroupAccess": {
-          "title": "Attribuer l'accès des groupes à ce connecteur"
-        },
-        "assignToGroup": {
-          "title": "Groupes pouvant gérer ce connecteur"
-        },
-        "scopedManagerGroups": {
-          "description": "Sélectionnez un ou plusieurs des groupes que vous gérez pour donner accès à ce connecteur"
-        },
-        "syncGroups": {
-          "description": "Les groupes ci-dessous contrôlent qui peut gérer ce connecteur. L'accès à ses documents est hérité des permissions de la source elle-même."
-        },
-        "visibleToGroups": {
-          "description": "Ce connecteur sera visible/accessible par les groupes sélectionnés ci-dessous"
         }
       },
       "indexAttemptsTable": {
@@ -2670,10 +2638,6 @@
           "toast": "Une erreur inconnue est survenue"
         }
       },
-      "connectorName": {
-        "label": "Nom du connecteur",
-        "subtext": "Un nom descriptif pour le connecteur."
-      },
       "credentialRequired": {
         "tooltip": "Sélectionnez d'abord un identifiant."
       },
@@ -2978,6 +2942,57 @@
           "hours": "heures",
           "minutes": "minutes"
         }
+      },
+      "settings": {
+        "description": "Informations et accès du connecteur.",
+        "displayName": {
+          "title": "Nom d'affichage du connecteur"
+        },
+        "documentAccess": {
+          "description": "Contrôlez qui peut accéder aux documents indexés par ce connecteur.",
+          "everyone": {
+            "description": "Les documents indexés par ce connecteur seront publics pour tout le monde dans votre organisation.",
+            "title": "Tout le monde dans votre organisation"
+          },
+          "specificGroups": {
+            "description": "Indiquez les groupes qui peuvent accéder aux documents de ce connecteur.",
+            "required": "Choisissez au moins un groupe.",
+            "title": "Groupes spécifiques"
+          },
+          "sync": {
+            "description": "{appName} synchronise les autorisations avec la source. Les utilisateurs ne peuvent rechercher que ce qu'ils voient dans la source.",
+            "disabledReason": "La méthode d'authentification de l'identifiant actuel ne prend pas en charge la synchronisation automatique des permissions. Veuillez passer à une méthode d'authentification prise en charge.",
+            "title": "Synchroniser avec {source}"
+          },
+          "title": "Accès aux documents"
+        },
+        "manageAccess": {
+          "admins": {
+            "alwaysShared": "Toujours partagé",
+            "title": "Administrateurs"
+          },
+          "description": "Contrôlez qui peut exploiter (planifier et surveiller l'indexation) et/ou modifier la configuration du connecteur.",
+          "note": "Seuls les utilisateurs disposant des autorisations « Gérer les connecteurs » (rôle de gestionnaire de groupe ou autorisations de groupe) pourront exploiter et/ou modifier les connecteurs.",
+          "placeholder": "Ajouter des groupes pour partager ce connecteur",
+          "role": {
+            "editor": {
+              "description": "Modifier/supprimer les configurations.",
+              "label": "Éditeur"
+            },
+            "menu": {
+              "ariaLabel": "Rôle de {name}"
+            },
+            "operator": {
+              "description": "Planifier/surveiller l'indexation.",
+              "label": "Opérateur"
+            },
+            "removeAccess": {
+              "label": "Retirer l'accès"
+            }
+          },
+          "title": "Accès de gestion du connecteur"
+        },
+        "title": "Paramètres du connecteur"
       }
     },
     "costOverrides": {
@@ -8444,6 +8459,9 @@
         "makeAdmin": {
           "label": "Nommer administrateur"
         },
+        "menuButton": {
+          "ariaLabel": "Actions utilisateur"
+        },
         "removeAdmin": {
           "label": "Retirer l'accès administrateur"
         },
@@ -8799,6 +8817,31 @@
           "label": "URL de base de l'API",
           "description": "L'URL de base de votre API Firecrawl."
         }
+      }
+    },
+    "llmGateway": {
+      "header": {
+        "title": "LLM Gateway",
+        "description": "Contrôlez l'accès direct par API aux modèles de langue de l'espace de travail depuis des outils externes."
+      },
+      "access": {
+        "title": "Accès direct aux modèles par API",
+        "description": "Autorisez les utilisateurs à appeler les modèles de langue de l'espace de travail depuis des outils externes comme Claude Code ou Cursor. Les appels utilisent des jetons d'accès à portée limitée et sont facturés à vos fournisseurs configurés.",
+        "toggle": {
+          "title": "Activer LLM Gateway",
+          "description": "Lorsque cette option est désactivée, tous les points de terminaison de la passerelle rejettent les requêtes, les jetons existants cessent de fonctionner et la portée de la passerelle est masquée dans le sélecteur de jetons. Le trafic du sandbox Craft est contrôlé séparément par les paramètres Craft."
+        }
+      },
+      "businessPlanTag": {
+        "label": "Forfait Business"
+      },
+      "tierTooltip": "LLM Gateway nécessite le forfait Business ou Enterprise.",
+      "scopeNote": {
+        "title": "Chaque utilisateur configure son propre jeton et les détails de connexion sous Paramètres → LLM Gateway."
+      },
+      "toasts": {
+        "settingsUpdated": "Paramètres mis à jour",
+        "settingsUpdateFailed": "Échec de la mise à jour des paramètres"
       }
     }
   },
@@ -11234,6 +11277,9 @@
         "expand": {
           "ariaLabel": "Développer le projet"
         },
+        "options": {
+          "label": "Options du projet"
+        },
         "rename": {
           "label": "Renommer le projet"
         }
@@ -11873,7 +11919,6 @@
         }
       },
       "associatedSkills": {
-        "associateAriaLabel": "Associer {name}",
         "associateButton": "Associer une existante",
         "create": {
           "github": {
@@ -12584,6 +12629,9 @@
       },
       "newSession": {
         "label": "Commencer à créer"
+      },
+      "options": {
+        "label": "Options de la session"
       },
       "rename": {
         "label": "Renommer"
@@ -13582,6 +13630,10 @@
       "title": "Zone de danger"
     },
     "gateway": {
+      "adminDisabled": {
+        "description": "Un administrateur a désactivé LLM Gateway pour cet espace de travail. Contactez un administrateur pour le réactiver.",
+        "title": "LLM Gateway est désactivé"
+      },
       "accessToken": {
         "button": "Nouveau jeton",
         "description": "Créez un jeton à portée limitée avant de connecter une application.",
@@ -13893,6 +13945,9 @@
         "languageModels": {
           "label": "Modèles de langage"
         },
+        "llmGateway": {
+          "label": "LLM Gateway"
+        },
         "mcpActions": {
           "label": "Actions MCP"
         },
@@ -14041,6 +14096,9 @@
       },
       "moveToProject": {
         "label": "Déplacer vers un projet"
+      },
+      "options": {
+        "label": "Options de la conversation"
       },
       "projectSearchInput": {
         "placeholder": "Rechercher des projets"
