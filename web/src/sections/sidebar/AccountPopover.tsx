@@ -104,111 +104,128 @@ function useSettingsItems({
                 : getUserEmail(user)
             }
           />
-{
-  kind: "group",
-  items: [
-    {
-      kind: "action",
-      id: "user-settings",
-      icon: SvgSliders,
-      title: t("settings.label"),
-      href: "/app/settings",
-      onSelect: onUserSettingsClick,
-    },
-    {
-      kind: "custom",
-      id: "notifications",
-      keywords: [t("notifications.label")],
-      onActivate: (views) => views.push("notifications"),
-      render: ({ highlighted, props }) => (
-        <LineItemButton
-          presentational
-          selectVariant="select-heavy"
-          interaction={highlighted ? "hover" : "rest"}
-          sizePreset="main-ui"
-          variant="section"
-          rounding={2}
-          icon={SvgBell}
-          title={t("notifications.label")}
-          rightChildren={
-            undismissedCount ? (
-              <SvgNotificationBubble count={undismissedCount} />
-            ) : undefined
-          }
-          {...props}
-        />
-      ),
-    },
-    {
-      kind: "action",
-      id: "help-faq",
-      icon: SvgHelpCircle,
-      title: t("helpFaq.label"),
-      href: "https://docs.onyx.app",
-      target: "_blank",
-    },
-    ...(enterpriseSettings?.custom_help_link_url
-      ? [
-          {
-            kind: "action" as const,
-            id: "custom-help-link",
-            icon: SvgExternalLink,
-            title:
-              enterpriseSettings.custom_help_link_label ||
-              enterpriseSettings.custom_help_link_url,
-            href: enterpriseSettings.custom_help_link_url,
-            target: "_blank",
-          },
-        ]
-      : []),
-    ...(showLogin
-      ? [
-          {
-            kind: "action" as const,
-            id: "log-in",
-            icon: SvgUser,
-            title: t("logIn.label"),
-            onSelect: handleLogin,
-          },
-        ]
-      : []),
-    ...(showLogout
-      ? [
-          {
-            kind: "action" as const,
-            id: "log-out",
-            icon: SvgLogOut,
-            danger: true,
-            title: t("signOut.label"),
-            onSelect: handleLogout,
-          },
-        ]
-      : []),
-  ],
-},
-{
-  kind: "group",
-  items: [
-    {
-      kind: "custom",
-      id: "version",
-      disabled: true,
-      render: ({ props }) => (
-        <div {...props} className="p-2">
-          <Content
-            sizePreset="secondary"
-            variant="body"
-            color="muted"
-            orientation="reverse"
-            icon={SvgCortexLogo}
-            title={`Cortex One ${settings.version ?? "dev"}`}
-          />
         </div>
       ),
     },
-  ],
-},
-];
+    {
+      kind: "group",
+      items: [
+        {
+          kind: "action",
+          id: "user-settings",
+          icon: SvgSliders,
+          title: t("settings.label"),
+          href: "/app/settings",
+        },
+        {
+          kind: "custom",
+          id: "notifications",
+          keywords: [t("notifications.label")],
+          onActivate: (views) => views.push("notifications"),
+          render: ({ highlighted, props }) => (
+            <LineItemButton
+              presentational
+              selectVariant="select-heavy"
+              interaction={highlighted ? "hover" : "rest"}
+              sizePreset="main-ui"
+              variant="section"
+              rounding={2}
+              icon={SvgBell}
+              title={t("notifications.label")}
+              rightChildren={
+                undismissedCount ? (
+                  <SvgNotificationBubble count={undismissedCount} />
+                ) : undefined
+              }
+              {...props}
+            />
+          ),
+        },
+        {
+          kind: "action",
+          id: "help-faq",
+          icon: SvgHelpCircle,
+          title: t("helpFaq.label"),
+          href: "https://docs.onyx.app",
+          target: "_blank",
+        },
+        ...(enterpriseSettings?.custom_help_link_url
+          ? [
+              {
+                kind: "action" as const,
+                id: "custom-help-link",
+                icon: SvgExternalLink,
+                title:
+                  enterpriseSettings.custom_help_link_label ||
+                  enterpriseSettings.custom_help_link_url,
+                href: enterpriseSettings.custom_help_link_url,
+                target: "_blank",
+              },
+            ]
+          : []),
+        ...(showLogin
+          ? [
+              {
+                kind: "action" as const,
+                id: "log-in",
+                icon: SvgUser,
+                title: t("logIn.label"),
+                onSelect: handleLogin,
+              },
+            ]
+          : []),
+        ...(showLogout
+          ? [
+              {
+                kind: "action" as const,
+                id: "log-out",
+                icon: SvgLogOut,
+                danger: true,
+                title: t("signOut.label"),
+                onSelect: handleLogout,
+              },
+            ]
+          : []),
+      ],
+    },
+    {
+      kind: "group",
+      items: [
+        {
+          kind: "custom",
+          id: "version",
+          disabled: true,
+          render: ({ props }) => (
+            <div {...props} className="p-2">
+              <Content
+                sizePreset="secondary"
+                variant="body"
+                color="muted"
+                orientation="reverse"
+                icon={SvgCortexLogo}
+                title={`Cortex One ${settings.version ?? "dev"}`}
+              />
+            </div>
+          ),
+        },
+      ],
+    },
+  ];
+}
+
+interface NotificationsPageProps {
+  onShowBuildIntro?: () => void;
+}
+
+/** The notifications page, one row holding the panel; back pops, a pick closes. */
+function NotificationsPage({ onShowBuildIntro }: NotificationsPageProps) {
+  const views = useDropdownViews();
+  return (
+    <NotificationsPopover
+      onClose={() => views.pop()}
+      onNavigate={() => views.close()}
+      onShowBuildIntro={onShowBuildIntro}
+    />
   );
 }
 
